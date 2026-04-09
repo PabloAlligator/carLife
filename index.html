@@ -1,412 +1,530 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="site/styles/main.css">
-    <link rel="shortcut icon" href="site/img/logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="site/styles/main.css" />
+    <link rel="shortcut icon" href="site/img/logo" />
     <title>CarLife</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header">
+      <div class="header__logo">
+        <a href="#home">
+          CAR LIFE
+          <img src="#" />
+        </a>
+      </div>
 
-        <div class="header__logo">
-            <a href="#home">
-                CAR LIFE
-                <img src="#">
-            </a>
-        </div>
+      <div class="header__overlay"></div>
 
-        <div class="header__overlay"></div>
+      <div class="header__burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-        <div class="header__burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <nav class="header__nav">
-            <ul>
-
-                <li><a href="#uslugi">УСЛУГИ</a></li>
-                <li><a href="#catalizator">КАТАЛИЗАТОР</a></li>
-                <li><a href="#about">О НАС</a></li>
-                <li><a href="#contacts">КОНТАКТЫ</a></li>
-                <li><a href="#connect">ЗАПИСАТЬСЯ</a></li>
-
-            </ul>
-        </nav>
-
+      <nav class="header__nav">
+        <ul>
+          <li><a href="#uslugi">УСЛУГИ</a></li>
+          <li><a href="#catalizator">КАТАЛИЗАТОР</a></li>
+          <li><a href="#about">О НАС</a></li>
+          <li><a href="#contacts">КОНТАКТЫ</a></li>
+          <li><a href="#connect">ЗАПИСАТЬСЯ</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!--  hero -->
     <section class="hero" id="home">
-        <div class="hero__overlay"></div>
+      <div class="hero__overlay"></div>
 
-        <div class="hero-container">
-            <h2 class="hero__subtitle">
-                ПРОФИЛЬНЫЙ СЕРВИС VAG
-            </h2>
+      <div class="hero-container">
+        <h2 class="hero__subtitle">ПРОФИЛЬНЫЙ СЕРВИС VAG</h2>
 
-            <h1 class="hero__title">
-                АВТОСЕРВИС <br>
-                <span>CARLIFE</span> В АБАКАНЕ
-            </h1>
+        <h1 class="hero__title">
+          АВТОСЕРВИС <br />
+          <span>CARLIFE</span> В АБАКАНЕ
+        </h1>
 
-            <p class="hero__description">
-                Диагностика, ремонт и тюнинг автомобилей Volkswagen, Audi, Skoda.
-                Работаем с пониманием конструкции и типовых проблем VAG.
-            </p>
+        <p class="hero__description">
+          Диагностика, ремонт и тюнинг автомобилей Volkswagen, Audi, Skoda.
+          Работаем с пониманием конструкции и типовых проблем VAG.
+        </p>
 
-            <div class="hero__buttons">
-                <a href="#connect" class="btn btn--primary">
-                    ЗАПИСАТЬСЯ НА ОБСЛУЖИВАНИЕ
-                </a>
+        <div class="hero__buttons">
+          <a href="#connect" class="btn btn--primary">
+            ЗАПИСАТЬСЯ НА ОБСЛУЖИВАНИЕ
+          </a>
 
-                <a href="#services" class="btn btn--outline">
-                    НАШИ УСЛУГИ
-                </a>
-            </div>
+          <a href="#services" class="btn btn--outline"> НАШИ УСЛУГИ </a>
         </div>
+      </div>
     </section>
 
     <!-- section about -->
 
     <section class="about" id="about">
-        <div class="about__container">
-            <div class="about__content">
-                <span class="about__eyebrow">О сервисе</span>
+      <div class="about__container">
+        <div class="about__content">
+          <span class="about__eyebrow">О сервисе</span>
 
-                <h2 class="about__title">
-                    СЕРВИС, В КОТОРОМ <span>ВАЖЕН КАЖДЫЙ ДЕТАЛЬНЫЙ РЕЗУЛЬТАТ</span>
-                </h2>
+          <h2 class="about__title">
+            СЕРВИС, В КОТОРОМ <span>ВАЖЕН КАЖДЫЙ ДЕТАЛЬНЫЙ РЕЗУЛЬТАТ</span>
+          </h2>
 
-                <p class="about__text">
-                    Мы подходим к каждому автомобилю как к системе, где важна точность, честная диагностика
-                    и качественное исполнение работ. Для нас сервис — это не поток, а результат, за который
-                    не стыдно отвечать.
-                </p>
+          <p class="about__text">
+            Мы подходим к каждому автомобилю как к системе, где важна точность,
+            честная диагностика и качественное исполнение работ. Для нас сервис
+            — это не поток, а результат, за который не стыдно отвечать.
+          </p>
 
-                <p class="about__text about__text--secondary">
-                    Работаем аккуратно, объясняем по делу, используем профессиональное оборудование и
-                    подбираем решения под реальное состояние автомобиля, а не по шаблону.
-                </p>
+          <p class="about__text about__text--secondary">
+            Работаем аккуратно, объясняем по делу, используем профессиональное
+            оборудование и подбираем решения под реальное состояние автомобиля,
+            а не по шаблону.
+          </p>
 
-                <div class="about__stats">
-                    <div class="about__stat">
-                        <span class="about__stat-number">1000+</span>
-                        <span class="about__stat-label">обслуженных автомобилей</span>
-                    </div>
-
-                    <div class="about__stat">
-                        <span class="about__stat-number">7+</span>
-                        <span class="about__stat-label">лет практического опыта</span>
-                    </div>
-
-                    <div class="about__stat">
-                        <span class="about__stat-number">100%</span>
-                        <span class="about__stat-label">внимания к качеству работ</span>
-                    </div>
-                </div>
+          <div class="about__stats">
+            <div class="about__stat">
+              <span class="about__stat-number">1000+</span>
+              <span class="about__stat-label">обслуженных автомобилей</span>
             </div>
 
-            <div class="about__visual">
-                <div class="about__image-wrap">
-                    <img src="site/img/hero-back.jpg" alt="Автосервис и процесс работы с автомобилем"
-                        class="about__image">
-                </div>
-
-                <div class="about__floating-card">
-                    <span class="about__floating-label">Precision service</span>
-                    <p class="about__floating-text">
-                        Профессиональный подход, современное оборудование и внимание к каждой детали.
-                    </p>
-                </div>
+            <div class="about__stat">
+              <span class="about__stat-number">7+</span>
+              <span class="about__stat-label">лет практического опыта</span>
             </div>
+
+            <div class="about__stat">
+              <span class="about__stat-number">100%</span>
+              <span class="about__stat-label">внимания к качеству работ</span>
+            </div>
+          </div>
         </div>
-    </section>
 
+        <div class="about__visual">
+          <div class="about__image-wrap">
+            <img
+              src="site/img/hero-back.jpg"
+              alt="Автосервис и процесс работы с автомобилем"
+              class="about__image"
+            />
+          </div>
+
+          <div class="about__floating-card">
+            <span class="about__floating-label">Precision service</span>
+            <p class="about__floating-text">
+              Профессиональный подход, современное оборудование и внимание к
+              каждой детали.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Uslugi -->
     <section class="uslugi" id="uslugi">
-
-        <div class="uslugi-container">
-            <div class="uslugi__element" data-title="СЛЕСАРНЫЙ РЕМОНТ"
-                data-text="Ремонт ходовой, подвески, тормозной системы любой сложности, проточка тормозных дисков."
-                data-image="site/img/uslugi/skwsar.png" data-phone="+7 (923) 390-00-00">
-                <img src="site/img/icons8-settings-50.png" alt="Слесарный ремонт">
-                <span class="uslugi__eyebrow">Service</span>
-                <h3>СЛЕСАРНЫЙ РЕМОНТ</h3>
-                <p>Ремонт ходовой, подвески и тормозной системы любой сложности</p>
-                <a href="#connect" class="uslugi__trigger" aria-label="Подробнее о слесарном ремонте">
-                    <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="">
-                </a>
-            </div>
-
-            <div class="uslugi__element" data-title="ДИАГНОСТИКА"
-                data-text="Компьютерная диагностика всех систем автомобиля на профессиональном оборудовании."
-                data-image="site/img/uslugi/diagbostika.png" data-phone="+7 (923) 390-00-00">
-                <img src="site/img/icons8-timer-50 (1).png" alt="Диагностика">
-                <span class="uslugi__eyebrow">Technology</span>
-                <h3>ДИАГНОСТИКА</h3>
-                <p>Компьютерная проверка всех систем автомобиля на профессиональном оборудовании</p>
-                <a href="#connect" class="uslugi__trigger" aria-label="Подробнее о диагностике">
-                    <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="">
-                </a>
-            </div>
-
-            <div class="uslugi__element" data-title="ТО И ЗАМЕНА МАСЛА"
-                data-text="Регламентное обслуживание с сохранением гарантии. Оригинальные масла и качественные расходные материалы."
-                data-image="site/img/uslugi/zamena.png" data-phone="+7 (923) 390-00-00">
-                <img src="site/img/icons8-timer-50 (1).png" alt="ТО и замена масла">
-                <span class="uslugi__eyebrow">Maintenance</span>
-                <h3>ТО И ЗАМЕНА МАСЛА</h3>
-                <p>Регламентное обслуживание, оригинальные масла и качественные расходники</p>
-                <a href="#connect" class="uslugi__trigger" aria-label="Подробнее о техническом обслуживании">
-                    <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="">
-                </a>
-            </div>
-
-            <div class="uslugi__element" data-title="ЧИП-ТЮНИНГ"
-                data-text="Увеличение мощности, отключение EGR/DPF, прошивка под Евро-2/3/4, удаление катализатора."
-                data-image="site/img/uslugi/tuning.png" data-phone="+7 (923) 390-00-00">
-                <img src="site/img/icons8-fire-50 (1).png" alt="Чип-тюнинг">
-                <span class="uslugi__eyebrow">Performance</span>
-                <h3>ЧИП-ТЮНИНГ</h3>
-                <p>Увеличение мощности, настройка ECU и оптимизация работы двигателя</p>
-                <a href="#connect" class="uslugi__trigger" aria-label="Подробнее о чип-тюнинге">
-                    <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="">
-                </a>
-            </div>
-
-            <div class="uslugi__element" data-title="РЕМОНТ ДВИГАТЕЛЯ"
-                data-text="Капитальный ремонт ДВС, замена ГРМ, ремонт ГБЦ с гарантией и качественными комплектующими."
-                data-image="site/img/uslugi/dvigatel.png" data-phone="+7 (923) 390-00-00">
-                <img src="site/img/icons8-settings-50.png" alt="Ремонт двигателя">
-                <span class="uslugi__eyebrow">Engine Lab</span>
-                <h3>РЕМОНТ ДВИГАТЕЛЯ</h3>
-                <p>Капитальный ремонт ДВС, замена ГРМ и восстановление узлов с гарантией</p>
-                <a href="#connect" class="uslugi__trigger" aria-label="Подробнее о ремонте двигателя">
-                    <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="">
-                </a>
-            </div>
-
-            <div class="uslugi__element" data-title="СХОД-РАЗВАЛ 3D"
-                data-text="Высокоточная регулировка углов установки колёс на профессиональном 3D-стенде."
-                data-image="site/img/uslugi/shod-razval.png" data-phone="+7 (923) 390-00-00">
-                <img src="site/img/icons8-location-50.png" alt="Сход-развал 3D">
-                <span class="uslugi__eyebrow">Precision</span>
-                <h3>СХОД-РАЗВАЛ 3D</h3>
-                <p>Точная регулировка углов установки колёс на профессиональном 3D-стенде</p>
-                <a href="#connect" class="uslugi__trigger" aria-label="Подробнее о сход-развале 3D">
-                    <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="">
-                </a>
-            </div>
+      <div class="uslugi-container">
+        <div
+          class="uslugi__element"
+          data-title="СЛЕСАРНЫЙ РЕМОНТ"
+          data-text="Ремонт ходовой, подвески, тормозной системы любой сложности, проточка тормозных дисков."
+          data-image="site/img/uslugi/skwsar.png"
+          data-phone="+7 (923) 390-00-00"
+        >
+          <img src="site/img/icons8-settings-50.png" alt="Слесарный ремонт" />
+          <span class="uslugi__eyebrow">Service</span>
+          <h3>СЛЕСАРНЫЙ РЕМОНТ</h3>
+          <p>Ремонт ходовой, подвески и тормозной системы любой сложности</p>
+          <a
+            href="#connect"
+            class="uslugi__trigger"
+            aria-label="Подробнее о слесарном ремонте"
+          >
+            <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="" />
+          </a>
         </div>
+
+        <div
+          class="uslugi__element"
+          data-title="ДИАГНОСТИКА"
+          data-text="Компьютерная диагностика всех систем автомобиля на профессиональном оборудовании."
+          data-image="site/img/uslugi/diagbostika.png"
+          data-phone="+7 (923) 390-00-00"
+        >
+          <img src="site/img/icons8-timer-50 (1).png" alt="Диагностика" />
+          <span class="uslugi__eyebrow">Technology</span>
+          <h3>ДИАГНОСТИКА</h3>
+          <p>
+            Компьютерная проверка всех систем автомобиля на профессиональном
+            оборудовании
+          </p>
+          <a
+            href="#connect"
+            class="uslugi__trigger"
+            aria-label="Подробнее о диагностике"
+          >
+            <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="" />
+          </a>
+        </div>
+
+        <div
+          class="uslugi__element"
+          data-title="ТО И ЗАМЕНА МАСЛА"
+          data-text="Регламентное обслуживание с сохранением гарантии. Оригинальные масла и качественные расходные материалы."
+          data-image="site/img/uslugi/zamena.png"
+          data-phone="+7 (923) 390-00-00"
+        >
+          <img src="site/img/icons8-timer-50 (1).png" alt="ТО и замена масла" />
+          <span class="uslugi__eyebrow">Maintenance</span>
+          <h3>ТО И ЗАМЕНА МАСЛА</h3>
+          <p>
+            Регламентное обслуживание, оригинальные масла и качественные
+            расходники
+          </p>
+          <a
+            href="#connect"
+            class="uslugi__trigger"
+            aria-label="Подробнее о техническом обслуживании"
+          >
+            <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="" />
+          </a>
+        </div>
+
+        <div
+          class="uslugi__element"
+          data-title="ЧИП-ТЮНИНГ"
+          data-text="Увеличение мощности, отключение EGR/DPF, прошивка под Евро-2/3/4, удаление катализатора."
+          data-image="site/img/uslugi/tuning.png"
+          data-phone="+7 (923) 390-00-00"
+        >
+          <img src="site/img/icons8-fire-50 (1).png" alt="Чип-тюнинг" />
+          <span class="uslugi__eyebrow">Performance</span>
+          <h3>ЧИП-ТЮНИНГ</h3>
+          <p>
+            Увеличение мощности, настройка ECU и оптимизация работы двигателя
+          </p>
+          <a
+            href="#connect"
+            class="uslugi__trigger"
+            aria-label="Подробнее о чип-тюнинге"
+          >
+            <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="" />
+          </a>
+        </div>
+
+        <div
+          class="uslugi__element"
+          data-title="РЕМОНТ ДВИГАТЕЛЯ"
+          data-text="Капитальный ремонт ДВС, замена ГРМ, ремонт ГБЦ с гарантией и качественными комплектующими."
+          data-image="site/img/uslugi/dvigatel.png"
+          data-phone="+7 (923) 390-00-00"
+        >
+          <img src="site/img/icons8-settings-50.png" alt="Ремонт двигателя" />
+          <span class="uslugi__eyebrow">Engine Lab</span>
+          <h3>РЕМОНТ ДВИГАТЕЛЯ</h3>
+          <p>
+            Капитальный ремонт ДВС, замена ГРМ и восстановление узлов с
+            гарантией
+          </p>
+          <a
+            href="#connect"
+            class="uslugi__trigger"
+            aria-label="Подробнее о ремонте двигателя"
+          >
+            <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="" />
+          </a>
+        </div>
+
+        <div
+          class="uslugi__element"
+          data-title="СХОД-РАЗВАЛ 3D"
+          data-text="Высокоточная регулировка углов установки колёс на профессиональном 3D-стенде."
+          data-image="site/img/uslugi/shod-razval.png"
+          data-phone="+7 (923) 390-00-00"
+        >
+          <img src="site/img/icons8-location-50.png" alt="Сход-развал 3D" />
+          <span class="uslugi__eyebrow">Precision</span>
+          <h3>СХОД-РАЗВАЛ 3D</h3>
+          <p>
+            Точная регулировка углов установки колёс на профессиональном
+            3D-стенде
+          </p>
+          <a
+            href="#connect"
+            class="uslugi__trigger"
+            aria-label="Подробнее о сход-развале 3D"
+          >
+            <img src="site/img/icons8-шеврон-вниз-в-круге-50.png" alt="" />
+          </a>
+        </div>
+      </div>
     </section>
 
-
     <section class="contact-premium" id="contacts">
-        <div class="contact-premium__container">
-            <div class="contact-premium__info">
-                <span class="contact-premium__eyebrow">Контакты и запись</span>
+      <div class="contact-premium__container">
+        <div class="contact-premium__info">
+          <span class="contact-premium__eyebrow">Контакты и запись</span>
 
-                <h2 class="contact-premium__title">
-                    ГДЕ НАС <span>НАЙТИ</span>
-                </h2>
+          <h2 class="contact-premium__title">ГДЕ НАС <span>НАЙТИ</span></h2>
 
-                <p class="contact-premium__subtitle">
-                    Мы находимся в промзоне Абаканвагонмаш. Удобный заезд, понятная локация и быстрый маршрут
-                    для тех, кто едет на обслуживание заранее.
-                </p>
+          <p class="contact-premium__subtitle">
+            Мы находимся в промзоне Абаканвагонмаш. Удобный заезд, понятная
+            локация и быстрый маршрут для тех, кто едет на обслуживание заранее.
+          </p>
 
-                <div class="contact-premium__details">
-                    <div class="contact-premium__detail">
-                        <span class="contact-premium__detail-label">Адрес</span>
-                        <p>г. Абакан, Игарская, 7, стр. 1</p>
-                    </div>
-
-                    <div class="contact-premium__detail">
-                        <span class="contact-premium__detail-label">Режим работы</span>
-                        <p>Пн–Пт 09:00–18:00<br>Сб 09:00–17:00</p>
-                    </div>
-
-                    <div class="contact-premium__detail">
-                        <span class="contact-premium__detail-label">Телефон</span>
-                        <a href="tel:+79233900000">+7 (923) 390-00-00</a>
-                    </div>
-                </div>
-
-                <div class="contact-premium__actions">
-                    <a href="https://yandex.ru/maps?rtext=53.745609,91.359825~53.710777,91.390204&rtt=auto" target="_blank"
-                        rel="noopener noreferrer" class="contact-premium__route-btn">
-                        ПОСТРОИТЬ МАРШРУТ
-                    </a>
-
-                    <a href="tel:+79233900000" class="contact-premium__phone-btn">
-                        ПОЗВОНИТЬ
-                    </a>
-                </div>
-
-                <div class="contact-premium__map">
-                    <div class="contact-premium__map-frame">
-                        <iframe
-                            src="https://yandex.ru/map-widget/v1/?ll=91.36018%2C53.72826&z=16&lang=ru_RU&mode=whatshere&whatshere%5Bpoint%5D=91.36018%2C53.72826&whatshere%5Bzoom%5D=16"
-                            width="100%" height="100%" frameborder="0" allowfullscreen="true"
-                            style="border: none;"></iframe>
-                    </div>
-                </div>
+          <div class="contact-premium__details">
+            <div class="contact-premium__detail">
+              <span class="contact-premium__detail-label">Адрес</span>
+              <p>г. Абакан, Игарская, 7, стр. 1</p>
             </div>
 
-            <div class="contact-premium__form-col" id="connect">
-                <div class="premium-form-card">
-                    <span class="premium-form-card__eyebrow">Запись на сервис</span>
-                    <h3 class="premium-form-card__title">ОСТАВЬТЕ ЗАЯВКУ</h3>
-                    <p class="premium-form-card__text">
-                        Заполните форму, и мы свяжемся с вами, чтобы уточнить услугу, детали и удобное время записи.
-                    </p>
-
-                    <div class="form-success" id="successMessage" style="display: none;">
-                        <h3>Заявка отправлена!</h3>
-                        <p>Мы получили вашу заявку и свяжемся в ближайшее время.</p>
-                        <button type="button" class="form-btn form-btn--secondary" onclick="resetForm()">Отправить
-                            ещё</button>
-                    </div>
-
-                    <div class="form-error" id="errorMessage" style="display: none;">
-                        <div class="error-icon">✕</div>
-                        <h3>Ошибка отправки</h3>
-                        <p>Попробуйте позже или позвоните: +7 (923) 390-00-00</p>
-                    </div>
-
-                    <form class="premium-form" id="connectForm">
-                        <div class="premium-form__group">
-                            <input type="text" name="name" class="premium-form__input" placeholder="Ваше имя" required>
-                        </div>
-
-                        <div class="premium-form__group">
-                            <input type="tel" name="phone" class="premium-form__input" placeholder="Телефон" required
-                                inputmode="tel" autocomplete="tel">
-                        </div>
-
-                        <div class="premium-form__group">
-                            <select name="service" class="premium-form__input premium-form__select" required>
-                                <option value="" disabled selected>Выберите услугу</option>
-                                <option value="Слесарный ремонт">Слесарный ремонт</option>
-                                <option value="Диагностика">Диагностика</option>
-                                <option value="ТО и замена масла">ТО и замена масла</option>
-                                <option value="Чип-тюнинг">Чип-тюнинг</option>
-                                <option value="Ремонт двигателя">Ремонт двигателя</option>
-                                <option value="Сход-развал 3D">Сход-развал 3D</option>
-                                <option value="Другое">Другое</option>
-                            </select>
-                        </div>
-
-                        <div class="premium-form__group">
-                            <textarea name="comment" class="premium-form__input premium-form__textarea"
-                                placeholder="Комментарий / удобное время" rows="4"></textarea>
-                        </div>
-
-                        <button type="submit" class="premium-form__btn" id="submitBtn">
-                            <span class="btn-text">ЗАПИСАТЬСЯ НА СЕРВИС</span>
-                        </button>
-
-                        <p class="premium-form__disclaimer">
-                            Нажимая кнопку &laquo;записаться на сервис&raquo;, вы соглашаетесь с
-                            <a href="#" class="premium-form__link">политикой конфиденциальности</a>
-                        </p>
-                    </form>
-                </div>
+            <div class="contact-premium__detail">
+              <span class="contact-premium__detail-label">Режим работы</span>
+              <p>Пн–Пт 09:00–18:00<br />Сб 09:00–17:00</p>
             </div>
+
+            <div class="contact-premium__detail">
+              <span class="contact-premium__detail-label">Телефон</span>
+              <a href="tel:+79233900000">+7 (923) 390-00-00</a>
+            </div>
+          </div>
+
+          <div class="contact-premium__actions">
+            <a
+              href="https://yandex.ru/maps?rtext=53.745609,91.359825~53.710777,91.390204&rtt=auto"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="contact-premium__route-btn"
+            >
+              ПОСТРОИТЬ МАРШРУТ
+            </a>
+
+            <a href="tel:+79233900000" class="contact-premium__phone-btn">
+              ПОЗВОНИТЬ
+            </a>
+          </div>
+
+          <div class="contact-premium__map">
+            <div class="contact-premium__map-frame">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?ll=91.36018%2C53.72826&z=16&lang=ru_RU&mode=whatshere&whatshere%5Bpoint%5D=91.36018%2C53.72826&whatshere%5Bzoom%5D=16"
+                width="100%"
+                height="100%"
+                frameborder="0"
+                allowfullscreen="true"
+                style="border: none"
+              ></iframe>
+            </div>
+          </div>
         </div>
+
+        <div class="contact-premium__form-col" id="connect">
+          <div class="premium-form-card">
+            <span class="premium-form-card__eyebrow">Запись на сервис</span>
+            <h3 class="premium-form-card__title">ОСТАВЬТЕ ЗАЯВКУ</h3>
+            <p class="premium-form-card__text">
+              Заполните форму, и мы свяжемся с вами, чтобы уточнить услугу,
+              детали и удобное время записи.
+            </p>
+
+            <div class="form-success" id="successMessage" style="display: none">
+              <h3>Заявка отправлена!</h3>
+              <p>Мы получили вашу заявку и свяжемся в ближайшее время.</p>
+              <button
+                type="button"
+                class="form-btn form-btn--secondary"
+                onclick="resetForm()"
+              >
+                Отправить ещё
+              </button>
+            </div>
+
+            <div class="form-error" id="errorMessage" style="display: none">
+              <div class="error-icon">✕</div>
+              <h3>Ошибка отправки</h3>
+              <p>Попробуйте позже или позвоните: +7 (923) 390-00-00</p>
+            </div>
+
+            <form class="premium-form" id="connectForm">
+              <div class="premium-form__group">
+                <input
+                  type="text"
+                  name="name"
+                  class="premium-form__input"
+                  placeholder="Ваше имя"
+                  required
+                />
+              </div>
+
+              <div class="premium-form__group">
+                <input
+                  type="tel"
+                  name="phone"
+                  class="premium-form__input"
+                  placeholder="Телефон"
+                  required
+                  inputmode="tel"
+                  autocomplete="tel"
+                />
+              </div>
+
+              <div class="premium-form__group">
+                <select
+                  name="service"
+                  class="premium-form__input premium-form__select"
+                  required
+                >
+                  <option value="" disabled selected>Выберите услугу</option>
+                  <option value="Слесарный ремонт">Слесарный ремонт</option>
+                  <option value="Диагностика">Диагностика</option>
+                  <option value="ТО и замена масла">ТО и замена масла</option>
+                  <option value="Чип-тюнинг">Чип-тюнинг</option>
+                  <option value="Ремонт двигателя">Ремонт двигателя</option>
+                  <option value="Сход-развал 3D">Сход-развал 3D</option>
+                  <option value="Другое">Другое</option>
+                </select>
+              </div>
+
+              <div class="premium-form__group">
+                <textarea
+                  name="comment"
+                  class="premium-form__input premium-form__textarea"
+                  placeholder="Комментарий / удобное время"
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="premium-form__btn" id="submitBtn">
+                <span class="btn-text">ЗАПИСАТЬСЯ НА СЕРВИС</span>
+              </button>
+
+              <p class="premium-form__disclaimer">
+                Нажимая кнопку &laquo;записаться на сервис&raquo;, вы
+                соглашаетесь с
+                <a href="#" class="premium-form__link"
+                  >политикой конфиденциальности</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- футер -->
 
-   <footer class="footer">
-    <div class="footer__container">
+    <footer class="footer">
+      <div class="footer__container">
         <div class="footer__top">
-            <div class="footer__brand">
-                <span class="footer__eyebrow">Premium VAG Service в Абакане</span>
-                <div class="footer__logo">CAR LIFE</div>
-                <p class="footer__description">
-                    Профильный автосервис в Абакане. Диагностика, обслуживание, чип-тюнинг,
-                    ремонт двигателя и точная работа с автомобилями VAG.
-                </p>
+          <div class="footer__brand">
+            <span class="footer__eyebrow">Premium VAG Service в Абакане</span>
+            <div class="footer__logo">CAR LIFE</div>
+            <p class="footer__description">
+              Профильный автосервис в Абакане. Диагностика, обслуживание,
+              чип-тюнинг, ремонт двигателя и точная работа с автомобилями VAG.
+            </p>
+          </div>
+
+          <div class="footer__info">
+            <div class="footer__column">
+              <span class="footer__label">Контакты</span>
+              <a href="tel:+79233900000" class="footer__link footer__phone"
+                >+7 (923) 390-00-00</a
+              >
+              <a href="№" target="_blank" class="footer__link footer__telegram">
+                Записаться в MAX
+              </a>
             </div>
 
-            <div class="footer__info">
-                <div class="footer__column">
-                    <span class="footer__label">Контакты</span>
-                    <a href="tel:+79233900000" class="footer__link footer__phone">+7 (923) 390-00-00</a>
-                    <a href="№" target="_blank" class="footer__link footer__telegram">
-                        Записаться в MAX
-                    </a>
-                </div>
-
-                <div class="footer__column">
-                    <span class="footer__label">Адрес</span>
-                    <p class="footer__text">Абакан, Игарская 7, С.1</p>
-                    <p class="footer__text">Пн–Пт 09:00–18:00<br>Сб 09:00–17:00</p>
-                </div>
-
-                <div class="footer__column">
-                    <span class="footer__label">Навигация</span>
-                    <div class="footer__nav">
-                        <a href="#about" class="footer__nav-link">О сервисе</a>
-                        <a href="#uslugi" class="footer__nav-link">Услуги</a>
-                        <a href="#contacts" class="footer__nav-link">Контакты</a>
-                        <a href="#connect" class="footer__nav-link">Запись</a>
-                    </div>
-                </div>
+            <div class="footer__column">
+              <span class="footer__label">Адрес</span>
+              <p class="footer__text">Абакан, Игарская 7, С.1</p>
+              <p class="footer__text">Пн–Пт 09:00–18:00<br />Сб 09:00–17:00</p>
             </div>
+
+            <div class="footer__column">
+              <span class="footer__label">Навигация</span>
+              <div class="footer__nav">
+                <a href="#about" class="footer__nav-link">О сервисе</a>
+                <a href="#uslugi" class="footer__nav-link">Услуги</a>
+                <a href="#contacts" class="footer__nav-link">Контакты</a>
+                <a href="#connect" class="footer__nav-link">Запись</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="footer__bottom">
-            <span class="footer__copy">© 2025–2026 CAR LIFE. Все права защищены.</span>
-            <a href="#" class="footer__policy">Политика конфиденциальности</a>
+          <span class="footer__copy"
+            >© 2025–2026 CAR LIFE. Все права защищены.</span
+          >
+          <a href="#" class="footer__policy">Политика конфиденциальности</a>
         </div>
-    </div>
-</footer>
+      </div>
+    </footer>
 
     <!-- модалка услуги -->
 
     <div class="service-modal" id="serviceModal" aria-hidden="true">
-        <div class="service-modal__overlay"></div>
+      <div class="service-modal__overlay"></div>
 
-        <div class="service-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="serviceModalTitle">
-            <button class="service-modal__close" type="button" aria-label="Закрыть popup">
-                ×
-            </button>
+      <div
+        class="service-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="serviceModalTitle"
+      >
+        <button
+          class="service-modal__close"
+          type="button"
+          aria-label="Закрыть popup"
+        >
+          ×
+        </button>
 
-            <div class="service-modal__image-wrap">
-                <img class="service-modal__image" id="serviceModalImage" src="" alt="">
-            </div>
-
-            <div class="service-modal__content">
-                <span class="service-modal__eyebrow">Premium service</span>
-                <h3 class="service-modal__title" id="serviceModalTitle"></h3>
-                <p class="service-modal__text" id="serviceModalText"></p>
-
-                <div class="service-modal__actions">
-                    <a href="#connect" class="service-modal__btn" id="serviceModalFormLink">
-                        Оставить заявку
-                    </a>
-
-                    <a href="tel:+79233906649" class="service-modal__phone" id="serviceModalPhone">
-                        <span class="service-modal__phone-label">Позвонить:</span>
-                        <span class="service-modal__phone-number">+7 (923) 390-00-00</span>
-                    </a>
-                </div>
-            </div>
+        <div class="service-modal__image-wrap">
+          <img
+            class="service-modal__image"
+            id="serviceModalImage"
+            src=""
+            alt=""
+          />
         </div>
+
+        <div class="service-modal__content">
+          <span class="service-modal__eyebrow">Premium service</span>
+          <h3 class="service-modal__title" id="serviceModalTitle"></h3>
+          <p class="service-modal__text" id="serviceModalText"></p>
+
+          <div class="service-modal__actions">
+            <a
+              href="#connect"
+              class="service-modal__btn"
+              id="serviceModalFormLink"
+            >
+              Оставить заявку
+            </a>
+
+            <a
+              href="tel:+79233906649"
+              class="service-modal__phone"
+              id="serviceModalPhone"
+            >
+              <span class="service-modal__phone-label">Позвонить:</span>
+              <span class="service-modal__phone-number"
+                >+7 (923) 390-00-00</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="site/script/scripts.js"></script>
-</body>
-
+  </body>
 </html>
