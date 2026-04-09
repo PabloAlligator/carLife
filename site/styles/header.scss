@@ -101,7 +101,7 @@ body {
                         left: 0;
                         width: 0;
                         height: 2px;
-                        background: red;
+                        background: #f47a1f;
                         transition: 0.4s;
                     }
 
@@ -113,7 +113,7 @@ body {
                 &:last-child a {
                     padding: 10px 20px;
                     color: white;
-                    background: #ff0000cc;
+                    background: #f47a1f;
                     border-radius: 8px;
 
                     // &::before {
@@ -175,7 +175,7 @@ body {
         max-width: 420px;
         height: 100vh;
         background: linear-gradient(180deg, #0a0a0a, #111);
-        box-shadow: -15px 0 50px rgba(255, 0, 0, 0.15);
+box-shadow: -20px 0 60px rgba(217, 90, 11, 0.35);
         display: flex;
         justify-content: center;
         align-items: center;
