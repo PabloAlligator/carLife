@@ -11,8 +11,8 @@ body {
 }
 
 .header {
-  
-   position: fixed;
+
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -24,11 +24,11 @@ body {
     backdrop-filter: blur(10px);
     padding: 20px 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    
+
     // Изначально ВИДЕН
     transform: translateY(0);
     opacity: 1;
-    
+
     // КОГДА СКРЫТ (при скролле вниз)
     &.hidden {
         transform: translateY(-100%);
@@ -175,7 +175,7 @@ body {
         max-width: 420px;
         height: 100vh;
         background: linear-gradient(180deg, #0a0a0a, #111);
-box-shadow: -20px 0 60px rgba(217, 90, 11, 0.35);
+        box-shadow: -20px 0 60px rgba(217, 90, 11, 0.35);
         display: flex;
         justify-content: center;
         align-items: center;

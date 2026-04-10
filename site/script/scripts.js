@@ -74,58 +74,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// 4. EmailJS
-
-emailjs.init('r0VmzggkXuhBsXCeb'); // твой Public Key
-
-const form = document.getElementById('connectForm');
-const submitBtn = document.getElementById('submitBtn');
-const successMsg = document.getElementById('successMessage');
-const errorMsg = document.getElementById('errorMessage');
-const btnText = submitBtn?.querySelector('.btn-text');
-
-
-// 5. Нормализация телефона
-
-function normalizePhone(phone) {
-    if (!phone) return '';
-
-    // Убираем всё кроме цифр
-    let digits = phone.replace(/\D/g, '');
-
-    // 89233906649 -> ок
-    if (digits.length === 11 && digits.startsWith('8')) {
-        return digits;
-    }
-
-    // 79233906649 -> превращаем в 89233906649
-    if (digits.length === 11 && digits.startsWith('7')) {
-        return '8' + digits.slice(1);
-    }
-
-    // 9233906649 -> превращаем в 89233906649
-    if (digits.length === 10) {
-        return '8' + digits;
-    }
-
-    return '';
-}
-
-function isValidRussianPhone(phone) {
-    const normalized = normalizePhone(phone);
-    return /^89\d{9}$/.test(normalized);
-}
-
-function formatPhoneForSend(phone) {
-    const normalized = normalizePhone(phone);
-
-    if (!normalized) return '';
-
-    // 89233906649 -> +7 (923) 390-66-49
-    return `+7 (${normalized.slice(1, 4)}) ${normalized.slice(4, 7)}-${normalized.slice(7, 9)}-${normalized.slice(9, 11)}`;
-}
-
-
 // 6. Маска ввода телефона
 
 const phoneInput = document.querySelector('input[name="phone"]');
@@ -152,6 +100,105 @@ if (phoneInput) {
     });
 }
 
+// отзывы
+
+const reviewsSwiper = new Swiper('.otzyvy-slider', {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    loop: true,
+    speed: 700,
+    autoHeight: false,
+
+    navigation: {
+        nextEl: '.otzyvy-button-next',
+        prevEl: '.otzyvy-button-prev',
+    },
+
+    breakpoints: {
+        0: {
+            slidesPerView: 1.1,
+            spaceBetween: 12,
+        },
+        480: {
+            slidesPerView: 1.2,
+            spaceBetween: 14,
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+        },
+        1200: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+        }
+    },
+
+    on: {
+        init() {
+            initReviewToggles();
+        }
+    }
+});
+
+function initReviewToggles() {
+    const reviewCards = document.querySelectorAll('.otzyvy-card');
+
+    reviewCards.forEach((card) => {
+        if (card.dataset.ready === 'true') return;
+        card.dataset.ready = 'true';
+
+        const text = card.querySelector('.otzyvy-card__text');
+        const toggle = card.querySelector('.otzyvy-card__toggle');
+
+        if (!text || !toggle) return;
+
+        const updateState = () => {
+            const wasOpen = card.classList.contains('is-open');
+
+            if (wasOpen) {
+                card.classList.remove('is-open');
+                toggle.textContent = 'Читать больше';
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+
+            card.classList.remove('is-short');
+
+            const isOverflowing = text.scrollHeight > text.clientHeight + 2;
+
+            if (!isOverflowing) {
+                card.classList.add('is-short');
+            }
+
+            if (wasOpen && !card.classList.contains('is-short')) {
+                card.classList.add('is-open');
+                toggle.textContent = 'Свернуть';
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+        };
+
+        requestAnimationFrame(() => {
+            updateState();
+            reviewsSwiper.update();
+        });
+
+        toggle.addEventListener('click', () => {
+            const isOpen = card.classList.toggle('is-open');
+
+            toggle.textContent = isOpen ? 'Свернуть' : 'Читать больше';
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+            setTimeout(() => {
+                reviewsSwiper.update();
+            }, 50);
+        });
+
+        window.addEventListener('resize', updateState);
+    });
+}
+
+reviewsSwiper.on('slideChangeTransitionEnd', () => {
+    reviewsSwiper.update();
+});
 
 // 7. Отправка формы
 
