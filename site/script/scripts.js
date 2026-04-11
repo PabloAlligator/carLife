@@ -21,18 +21,18 @@ const header = document.querySelector('.header');
 if (header) {
     let lastScroll = 0;
     let ticking = false;
-    
+
     window.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(() => {
                 const currentScroll = window.pageYOffset;
-                
+
                 if (currentScroll > lastScroll && currentScroll > 100) {
                     header.classList.add('hidden');
                 } else if (currentScroll < lastScroll && currentScroll < lastScroll - 10) {
                     header.classList.remove('hidden');
                 }
-                
+
                 lastScroll = currentScroll;
                 ticking = false;
             });
@@ -324,7 +324,7 @@ function resetForm() {
     if (errorMsg) errorMsg.style.display = 'none';
 }
 
-// модалка 
+// модалка
 
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('serviceModal');
