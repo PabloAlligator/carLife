@@ -1,26 +1,196 @@
-$white: #ffffffe8;
-$black: #000000;
-$red: #ff0000cc;
+/* =========================================================
+   TOKENS / DESIGN SYSTEM
+   Базовые переменные проекта
+   ========================================================= */
+
+$color-bg: #000000;
+$color-surface-1: #060606;
+$color-surface-2: #080808;
+$color-surface-3: #090909;
+$color-surface-4: #111111;
+
+$color-text-primary: rgba(255, 255, 255, 0.92);
+$color-text-secondary: rgba(255, 255, 255, 0.72);
+$color-text-muted: rgba(255, 255, 255, 0.48);
+
+$color-border-soft: rgba(255, 255, 255, 0.08);
+$color-border-strong: rgba(255, 255, 255, 0.14);
+
+$color-accent: #d95a0b;
+$color-accent-light: #f47a1f;
+$color-accent-gradient: linear-gradient(180deg, #ff8a46 0%, #b54608 100%);
+$color-danger: rgba(255, 0, 0, 0.8);
+
+/* Временная совместимость со старым кодом */
+$white: $color-text-primary;
+$black: $color-bg;
 $grey: #808080;
-$porsche-orange: #d95a0b;
-$porsche-orange-light: #f47a1f;
-$inter: inter;
-$RussoOne: russoone;
+$red: $color-danger;
+$porsche-orange: $color-accent;
+$porsche-orange-light: $color-accent-light;
+
+$font-base: 'Inter', sans-serif;
+$font-display: 'RussoOne', sans-serif;
+
+/* Совместимость со старыми именами */
+$inter: $font-base;
+$RussoOne: $font-display;
+
+/* =========================================================
+   FONTS
+   Локальное подключение шрифтов
+   ========================================================= */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter_18pt-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../fonts/Oswald-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RussoOne';
+  src: url('../fonts/RussoOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   IMPORTS
+   Импорт отдельных файлов
+   ========================================================= */
 
 @import '../styles/header.scss';
 
-html,
-body {
-  background: #000;
+/* =========================================================
+   GLOBAL RESET / FOUNDATION
+   Базовый слой проекта
+   ========================================================= */
+
+html {
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: $color-bg;
+  color: $color-text-primary;
+  font-family: $font-base;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(255, 140, 70, 0.8);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   COMMON UI HELPERS
+   Общие повторяющиеся стили
+   ========================================================= */
+
+@mixin card-dark($radius: 24px) {
+  border-radius: $radius;
+  background: $color-surface-4;
+  border: 1px solid $color-border-soft;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@mixin premium-panel($radius: 28px, $bg: $color-surface-2) {
+  border-radius: $radius;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015)
+    ),
+    $bg;
+  border: 1px solid $color-border-soft;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+@mixin hover-lift($y: -2px) {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    filter 0.3s ease;
+
+  &:hover {
+    transform: translateY($y);
+  }
+}
+
+@mixin section-container($max: 1720px, $padding: 0 24px) {
+  width: 100%;
+  max-width: $max;
+  margin: 0 auto;
+  padding: $padding;
+}
+
+/* =========================================================
+   HERO
+   Первый экран сайта
+   ========================================================= */
 
 .hero {
   position: relative;
@@ -52,32 +222,32 @@ body {
   }
 
   &__subtitle {
-    font-family: $RussoOne;
+    font-family: $font-display;
     font-size: 18px;
     letter-spacing: 4px;
-    color: $porsche-orange;
+    color: $color-accent;
     text-transform: uppercase;
-    // margin-bottom: 14px;
+    margin-bottom: 10px;
   }
 
   &__title {
-    font-family: $RussoOne;
-    font-size: 88px;
+    font-family: $font-display;
+    font-size: clamp(32px, 7vw, 88px);
     line-height: 1.02;
-    color: $white;
+    color: $color-text-primary;
     text-align: center;
     margin-bottom: 18px;
     text-wrap: balance;
 
     span {
-      color: $porsche-orange;
+      color: $color-accent;
       text-shadow: 0 0 20px rgba(217, 90, 11, 0.45);
     }
   }
 
   &__description {
-    font-family: $inter;
-    font-size: 20px;
+    font-family: $font-base;
+    font-size: clamp(14px, 2vw, 20px);
     text-align: center;
     line-height: 1.6;
     color: #c7cad4;
@@ -100,44 +270,43 @@ body {
     justify-content: center;
     min-height: 58px;
     padding: 18px 30px;
-    font-family: $RussoOne;
+    font-family: $font-display;
     font-size: 15px;
     letter-spacing: 0.5px;
     border-radius: 10px;
-    text-decoration: none;
-    transition: all 0.3s ease;
     text-align: center;
+    @include hover-lift(-2px);
 
     &--primary {
       background: linear-gradient(
         135deg,
-        $porsche-orange,
-        $porsche-orange-light
+        $color-accent,
+        $color-accent-light
       );
-      color: $white;
+      color: $color-text-primary;
       box-shadow: 0 0 24px rgba(217, 90, 11, 0.34);
 
       &:hover {
-        transform: translateY(-2px);
         box-shadow: 0 0 34px rgba(217, 90, 11, 0.48);
       }
     }
 
     &--outline {
       border: 2px solid rgba(255, 255, 255, 0.28);
-      color: $white;
+      color: $color-text-primary;
       background: rgba(255, 255, 255, 0.04);
       backdrop-filter: blur(6px);
 
       &:hover {
-        border-color: $porsche-orange;
-        color: $porsche-orange-light;
+        border-color: $color-accent;
+        color: $color-accent-light;
         background: rgba(217, 90, 11, 0.08);
       }
     }
   }
 }
 
+/* Hero: tablet */
 @media (max-width: 1024px) {
   .hero {
     min-height: 100vh;
@@ -172,7 +341,6 @@ body {
 
     &__title {
       font-size: 52px;
-      line-height: 1.02;
       text-align: left;
       margin-bottom: 14px;
     }
@@ -199,6 +367,7 @@ body {
   }
 }
 
+/* Hero: mobile */
 @media (max-width: 768px) {
   .hero {
     min-height: 100svh;
@@ -273,6 +442,7 @@ body {
   }
 }
 
+/* Hero: small mobile */
 @media (max-width: 480px) {
   .hero {
     min-height: 100svh;
@@ -327,12 +497,15 @@ body {
   }
 }
 
-// section about
+/* =========================================================
+   ABOUT
+   Блок о сервисе
+   ========================================================= */
+
 .about {
   position: relative;
   padding: 130px 0 110px;
   overflow: clip;
-  // border: 1px solid red;
 
   &::before {
     content: '';
@@ -372,10 +545,7 @@ body {
   &__container {
     position: relative;
     z-index: 2;
-    width: 100%;
-    max-width: 1720px;
-    margin: 0 auto;
-    padding: 0 24px;
+    @include section-container(1720px, 0 24px);
     display: grid;
     grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
     align-items: start;
@@ -387,7 +557,6 @@ body {
     z-index: 3;
     max-width: 760px;
     padding-top: 18px;
-    transform: translateY(-18px);
   }
 
   &__eyebrow {
@@ -399,7 +568,7 @@ body {
     line-height: 1;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    font-family: $inter;
+    font-family: $font-base;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.5);
 
@@ -422,8 +591,8 @@ body {
     line-height: 0.92;
     letter-spacing: 0.01em;
     text-transform: uppercase;
-    font-family: $RussoOne;
-    color: $white;
+    font-family: $font-display;
+    color: $color-text-primary;
     text-wrap: balance;
 
     span {
@@ -437,7 +606,7 @@ body {
     margin: 0;
     font-size: 18px;
     line-height: 1.85;
-    font-family: $inter;
+    font-family: $font-base;
     color: rgba(255, 255, 255, 0.78);
 
     &--secondary {
@@ -511,8 +680,8 @@ body {
     line-height: 0.95;
     letter-spacing: 0.01em;
     text-transform: uppercase;
-    font-family: $RussoOne;
-    color: $white;
+    font-family: $font-display;
+    color: $color-text-primary;
   }
 
   &__stat-label {
@@ -522,7 +691,7 @@ body {
     max-width: 180px;
     font-size: 14px;
     line-height: 1.55;
-    font-family: $inter;
+    font-family: $font-base;
     color: rgba(255, 255, 255, 0.56);
   }
 
@@ -532,7 +701,6 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: flex-end;
-    transform: translateX(74px);
   }
 
   &__image-wrap {
@@ -542,8 +710,8 @@ body {
     height: 760px;
     overflow: hidden;
     border-radius: 38px;
-    background: #080808;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: $color-surface-2;
+    border: 1px solid $color-border-soft;
     box-shadow:
       0 34px 90px rgba(0, 0, 0, 0.42),
       inset 0 1px 0 rgba(255, 255, 255, 0.04);
@@ -591,7 +759,6 @@ body {
   &__image {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
     transform: scale(1.02);
     filter: saturate(0.95) contrast(1.02) brightness(0.82);
@@ -605,20 +772,9 @@ body {
     width: 100%;
     max-width: 330px;
     padding: 24px 24px 22px;
-    border-radius: 28px;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.085),
-        rgba(255, 255, 255, 0.02)
-      ),
-      rgba(10, 10, 10, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.11);
+    @include premium-panel(28px, rgba(10, 10, 10, 0.82));
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    box-shadow:
-      0 26px 54px rgba(0, 0, 0, 0.34),
-      inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
     &::before {
       content: '';
@@ -646,7 +802,7 @@ body {
     line-height: 1;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    font-family: $inter;
+    font-family: $font-base;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.5);
 
@@ -664,11 +820,12 @@ body {
     margin: 0;
     font-size: 15px;
     line-height: 1.7;
-    font-family: $inter;
+    font-family: $font-base;
     color: rgba(255, 255, 255, 0.8);
   }
 }
 
+/* About: desktop narrow */
 @media (max-width: 1400px) {
   .about {
     padding: 138px 0 120px;
@@ -678,7 +835,6 @@ body {
     }
 
     &__visual {
-      transform: translateX(34px);
       min-height: 690px;
     }
 
@@ -693,6 +849,7 @@ body {
   }
 }
 
+/* About: tablet */
 @media (max-width: 1200px) {
   .about {
     padding: 100px 0 84px;
@@ -704,7 +861,6 @@ body {
 
     &__content {
       max-width: 100%;
-      transform: none;
     }
 
     &__title {
@@ -715,7 +871,6 @@ body {
     &__visual {
       min-height: auto;
       justify-content: center;
-      transform: none;
     }
 
     &__image-wrap {
@@ -731,6 +886,7 @@ body {
   }
 }
 
+/* About: mobile */
 @media (max-width: 768px) {
   .about {
     padding: 76px 0 62px;
@@ -805,6 +961,7 @@ body {
   }
 }
 
+/* About: small mobile */
 @media (max-width: 480px) {
   .about {
     padding: 60px 0 50px;
@@ -840,7 +997,10 @@ body {
   }
 }
 
-// СТА
+/* =========================================================
+   CTA
+   Промежуточный призыв к действию
+   ========================================================= */
 
 .cta {
   width: 100%;
@@ -855,8 +1015,8 @@ body {
     position: relative;
     padding: 48px 40px;
     border-radius: 24px;
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: $color-surface-4;
+    border: 1px solid $color-border-soft;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 
     display: flex;
@@ -867,7 +1027,6 @@ body {
 
     overflow: hidden;
 
-    // мягкое свечение
     &::before {
       content: '';
       position: absolute;
@@ -889,9 +1048,9 @@ body {
       margin: 0;
       font-size: 40px;
       line-height: 1.1;
-      font-family: $RussoOne;
+      font-family: $font-display;
       text-transform: uppercase;
-      color: $white;
+      color: $color-text-primary;
     }
 
     p {
@@ -899,7 +1058,7 @@ body {
       max-width: 560px;
       font-size: 16px;
       line-height: 1.6;
-      font-family: $inter;
+      font-family: $font-base;
       color: rgba(255, 255, 255, 0.7);
     }
   }
@@ -918,33 +1077,29 @@ body {
     align-items: center;
     justify-content: center;
 
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    text-decoration: none;
-
-    transition: all 0.3s ease;
+    @include hover-lift(-2px);
 
     &--max {
       background: #ffffff;
       color: #111;
 
       &:hover {
-        transform: translateY(-2px);
         opacity: 0.9;
       }
     }
 
     &--phone {
       background: rgba(255, 255, 255, 0.05);
-      color: $white;
+      color: $color-text-primary;
       border: 1px solid rgba(255, 255, 255, 0.1);
 
       &:hover {
         background: rgba(255, 255, 255, 0.08);
-        transform: translateY(-2px);
       }
     }
   }
@@ -991,10 +1146,13 @@ body {
   }
 }
 
-// uslugi
+/* =========================================================
+   SERVICES
+   Блок услуг
+   ========================================================= */
+
 .uslugi {
   position: relative;
-  // border: 1px solid red;
   width: 100%;
   padding: 130px 0 110px;
 
@@ -1021,8 +1179,8 @@ body {
     padding: 28px;
     border-radius: 24px;
     cursor: pointer;
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: $color-surface-4;
+    border: 1px solid $color-border-soft;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition:
       transform 0.3s ease,
@@ -1096,8 +1254,8 @@ body {
       line-height: 1.02;
       letter-spacing: 0.01em;
       text-transform: uppercase;
-      font-family: $RussoOne;
-      color: $white;
+      font-family: $font-display;
+      color: $color-text-primary;
       text-wrap: balance;
     }
 
@@ -1106,7 +1264,7 @@ body {
       margin: 0;
       font-size: 15px;
       line-height: 1.6;
-      font-family: $inter;
+      font-family: $font-base;
       color: rgba(255, 255, 255, 0.72);
     }
   }
@@ -1119,7 +1277,7 @@ body {
     line-height: 1;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    font-family: $inter;
+    font-family: $font-base;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.48);
   }
@@ -1144,7 +1302,6 @@ body {
     img {
       width: 18px;
       height: 18px;
-      display: block;
       object-fit: contain;
       filter: brightness(0) invert(1);
     }
@@ -1174,6 +1331,120 @@ body {
     background-image: url('../img/uslugi/shod-razval.png');
   }
 }
+
+/* Services: desktop narrow */
+@media (max-width: 1440px) {
+  .uslugi {
+    padding: 110px 20px 84px;
+
+    &-container {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &__element {
+      min-height: 300px;
+
+      h3 {
+        font-size: 27px;
+      }
+    }
+  }
+}
+
+/* Services: tablet */
+@media (max-width: 1200px) {
+  .uslugi {
+    padding: 90px 20px 70px;
+
+    &-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    &__element {
+      min-height: 300px;
+      padding: 24px 22px 22px;
+
+      h3 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+/* Services: mobile */
+@media (max-width: 768px) {
+  .uslugi {
+    padding: 70px 14px 48px;
+
+    &-container {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    &__element {
+      min-height: 260px;
+      padding: 20px 18px 18px;
+      border-radius: 20px;
+
+      > img {
+        width: 46px;
+        height: 46px;
+        padding: 10px;
+        border-radius: 12px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 1.5;
+      }
+    }
+
+    &__trigger {
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
+
+/* Services: small mobile */
+@media (max-width: 480px) {
+  .uslugi {
+    padding: 56px 12px 40px;
+
+    &__element {
+      min-height: 230px;
+      padding: 18px 16px 16px;
+
+      h3 {
+        font-size: 17px;
+      }
+
+      p {
+        font-size: 13px;
+        line-height: 1.45;
+      }
+    }
+
+    &__eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+    }
+  }
+}
+
+/* =========================================================
+   SERVICE MODAL
+   Модальное окно услуги
+   ========================================================= */
 
 body.modal-open {
   overflow: hidden;
@@ -1217,8 +1488,8 @@ body.modal-open {
     overflow-y: auto;
     margin: 20px auto;
     border-radius: 24px;
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: $color-surface-4;
+    border: 1px solid $color-border-soft;
     box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
     transform: translateY(20px);
     opacity: 0;
@@ -1234,13 +1505,11 @@ body.modal-open {
     z-index: 3;
     width: 42px;
     height: 42px;
-    border: none;
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.45);
     color: #fff;
     font-size: 28px;
     line-height: 1;
-    cursor: pointer;
     transition:
       background 0.3s ease,
       transform 0.3s ease;
@@ -1262,7 +1531,6 @@ body.modal-open {
   &__image {
     width: 100%;
     height: 100%;
-    display: block;
     object-fit: cover;
   }
 
@@ -1280,7 +1548,7 @@ body.modal-open {
     line-height: 1;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    font-family: $inter;
+    font-family: $font-base;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.46);
   }
@@ -1291,8 +1559,8 @@ body.modal-open {
     line-height: 1.06;
     letter-spacing: 0.01em;
     text-transform: uppercase;
-    font-family: $RussoOne;
-    color: $white;
+    font-family: $font-display;
+    color: $color-text-primary;
     text-wrap: balance;
   }
 
@@ -1301,7 +1569,7 @@ body.modal-open {
     margin: 0;
     font-size: 16px;
     line-height: 1.7;
-    font-family: $inter;
+    font-family: $font-base;
     color: rgba(255, 255, 255, 0.72);
   }
 
@@ -1321,8 +1589,7 @@ body.modal-open {
     border-radius: 14px;
     background: #ffffff;
     color: #111111;
-    text-decoration: none;
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -1345,7 +1612,6 @@ body.modal-open {
     min-height: 56px;
     padding: 14px 18px;
     border-radius: 14px;
-    text-decoration: none;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
     transition:
@@ -1360,59 +1626,19 @@ body.modal-open {
 
   &__phone-label {
     font-size: 12px;
-    font-family: $inter;
+    font-family: $font-base;
     color: rgba(255, 255, 255, 0.48);
   }
 
   &__phone-number {
     font-size: 20px;
     line-height: 1.1;
-    font-family: $RussoOne;
-    color: $white;
-  }
-}
-
-@media (max-width: 1440px) {
-  .uslugi {
-    padding: 110px 20px 84px;
-
-    &-container {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    &__element {
-      min-height: 300px;
-
-      h3 {
-        font-size: 27px;
-      }
-    }
+    font-family: $font-display;
+    color: $color-text-primary;
   }
 }
 
 @media (max-width: 1200px) {
-  .uslugi {
-    padding: 90px 20px 70px;
-
-    &-container {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    &__element {
-      min-height: 300px;
-      padding: 24px 22px 22px;
-
-      h3 {
-        font-size: 24px;
-      }
-
-      p {
-        font-size: 14px;
-      }
-    }
-  }
-
   .service-modal {
     &__image-wrap {
       height: 320px;
@@ -1433,42 +1659,6 @@ body.modal-open {
 }
 
 @media (max-width: 768px) {
-  .uslugi {
-    padding: 70px 14px 48px;
-
-    &-container {
-      grid-template-columns: 1fr;
-      gap: 14px;
-    }
-
-    &__element {
-      min-height: 260px;
-      padding: 20px 18px 18px;
-      border-radius: 20px;
-
-      > img {
-        width: 46px;
-        height: 46px;
-        padding: 10px;
-        border-radius: 12px;
-      }
-
-      h3 {
-        font-size: 20px;
-      }
-
-      p {
-        font-size: 14px;
-        line-height: 1.5;
-      }
-    }
-
-    &__trigger {
-      width: 42px;
-      height: 42px;
-    }
-  }
-
   .service-modal {
     &__dialog {
       width: calc(100% - 20px);
@@ -1510,29 +1700,6 @@ body.modal-open {
 }
 
 @media (max-width: 480px) {
-  .uslugi {
-    padding: 56px 12px 40px;
-
-    &__element {
-      min-height: 230px;
-      padding: 18px 16px 16px;
-
-      h3 {
-        font-size: 17px;
-      }
-
-      p {
-        font-size: 13px;
-        line-height: 1.45;
-      }
-    }
-
-    &__eyebrow {
-      font-size: 10px;
-      letter-spacing: 0.12em;
-    }
-  }
-
   .service-modal {
     &__image-wrap {
       height: 190px;
@@ -1557,7 +1724,10 @@ body.modal-open {
   }
 }
 
-// отзывы
+/* =========================================================
+   REVIEWS
+   Блок отзывов клиентов
+   ========================================================= */
 
 .otzyvy {
   width: 100%;
@@ -1565,9 +1735,7 @@ body.modal-open {
   overflow: hidden;
 
   &-container {
-    width: 100%;
-    max-width: 1720px;
-    margin: 0 auto;
+    @include section-container(1720px, 0);
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -1585,8 +1753,8 @@ body.modal-open {
       line-height: 1.1;
       letter-spacing: 0.02em;
       text-transform: uppercase;
-      font-family: $RussoOne;
-      color: $white;
+      font-family: $font-display;
+      color: $color-text-primary;
 
       span {
         color: rgba(255, 255, 255, 0.55);
@@ -1598,7 +1766,7 @@ body.modal-open {
       margin: 0;
       font-size: 18px;
       line-height: 1.6;
-      font-family: $inter;
+      font-family: $font-base;
       color: rgba(255, 255, 255, 0.68);
     }
   }
@@ -1622,8 +1790,8 @@ body.modal-open {
     min-height: 100%;
     padding: 24px;
     border-radius: 20px;
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: $color-surface-4;
+    border: 1px solid $color-border-soft;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
@@ -1652,10 +1820,10 @@ body.modal-open {
       height: 52px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.06);
-      color: $white;
+      color: $color-text-primary;
       font-size: 20px;
       font-weight: 700;
-      font-family: $RussoOne;
+      font-family: $font-display;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1672,15 +1840,15 @@ body.modal-open {
         margin: 0;
         font-size: 20px;
         line-height: 1.2;
-        font-family: $inter;
+        font-family: $font-base;
         font-weight: 700;
-        color: $white;
+        color: $color-text-primary;
       }
 
       span {
         font-size: 14px;
         line-height: 1.4;
-        font-family: $inter;
+        font-family: $font-base;
         color: rgba(255, 255, 255, 0.55);
       }
     }
@@ -1720,7 +1888,7 @@ body.modal-open {
       margin: 0;
       font-size: 15px;
       line-height: 1.65;
-      font-family: $inter;
+      font-family: $font-base;
       color: rgba(255, 255, 255, 0.72);
       overflow: hidden;
       display: -webkit-box;
@@ -1737,12 +1905,11 @@ body.modal-open {
       padding: 0;
       border: none;
       background: transparent;
-      color: $white;
+      color: $color-text-primary;
       font-size: 14px;
       font-weight: 600;
-      font-family: $inter;
+      font-family: $font-base;
       line-height: 1.2;
-      cursor: pointer;
       opacity: 0.72;
       transition: opacity 0.3s ease;
       flex-shrink: 0;
@@ -1789,8 +1956,7 @@ body.modal-open {
     min-height: 56px;
     padding: 0 24px;
     border-radius: 14px;
-    text-decoration: none;
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -1801,9 +1967,8 @@ body.modal-open {
     transition:
       transform 0.3s ease,
       filter 0.3s ease;
-    background: linear-gradient(180deg, #ff8a46 0%, #b54608 100%);
+    background: $color-accent-gradient;
     color: #fff;
-    font-family: $inter;
     border: 1px solid transparent;
 
     &:hover {
@@ -1819,12 +1984,11 @@ body.modal-open {
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.08);
     background: rgba(255, 255, 255, 0.04);
-    color: $white;
+    color: $color-text-primary;
     font-size: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     transition:
       transform 0.3s ease,
       background 0.3s ease,
@@ -1839,6 +2003,7 @@ body.modal-open {
   }
 }
 
+/* Reviews: desktop narrow */
 @media (max-width: 1440px) {
   .otzyvy {
     padding: 88px 20px;
@@ -1859,6 +2024,7 @@ body.modal-open {
   }
 }
 
+/* Reviews: tablet */
 @media (max-width: 1200px) {
   .otzyvy {
     padding: 80px 20px;
@@ -1897,6 +2063,7 @@ body.modal-open {
   }
 }
 
+/* Reviews: medium tablet */
 @media (max-width: 992px) {
   .otzyvy {
     padding: 72px 18px;
@@ -1928,6 +2095,7 @@ body.modal-open {
   }
 }
 
+/* Reviews: mobile */
 @media (max-width: 768px) {
   .otzyvy {
     padding: 64px 14px;
@@ -2010,6 +2178,7 @@ body.modal-open {
   }
 }
 
+/* Reviews: small mobile */
 @media (max-width: 480px) {
   .otzyvy {
     padding: 56px 12px;
@@ -2075,11 +2244,13 @@ body.modal-open {
   }
 }
 
-// нижний блок
+/* =========================================================
+   CONTACT PREMIUM
+   Контакты, карта и форма заявки
+   ========================================================= */
 
 .contact-premium {
   position: relative;
-  // border: 1px solid red;
   padding: 130px 0 110px;
   overflow: clip;
 
@@ -2121,10 +2292,7 @@ body.modal-open {
   &__container {
     position: relative;
     z-index: 2;
-    width: 100%;
-    max-width: 1720px;
-    margin: 0 auto;
-    padding: 0 24px;
+    @include section-container(1720px, 0 24px);
     display: grid;
     grid-template-columns: minmax(0, 1.08fr) minmax(380px, 500px);
     gap: 28px;
@@ -2135,18 +2303,7 @@ body.modal-open {
     position: relative;
     overflow: hidden;
     padding: 42px 42px 38px;
-    border-radius: 34px;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.045),
-        rgba(255, 255, 255, 0.015)
-      ),
-      #080808;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow:
-      0 30px 70px rgba(0, 0, 0, 0.34),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    @include premium-panel(34px, $color-surface-2);
 
     &::before {
       content: '';
@@ -2174,7 +2331,7 @@ body.modal-open {
     line-height: 1;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    font-family: $inter;
+    font-family: $font-base;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.5);
 
@@ -2199,8 +2356,8 @@ body.modal-open {
     line-height: 0.94;
     letter-spacing: 0.01em;
     text-transform: uppercase;
-    font-family: $RussoOne;
-    color: $white;
+    font-family: $font-display;
+    color: $color-text-primary;
 
     span {
       color: rgba(255, 255, 255, 0.72);
@@ -2214,7 +2371,7 @@ body.modal-open {
     margin: 0 0 30px;
     font-size: 17px;
     line-height: 1.8;
-    font-family: $inter;
+    font-family: $font-base;
     color: rgba(255, 255, 255, 0.74);
   }
 
@@ -2265,7 +2422,7 @@ body.modal-open {
       margin: 0;
       font-size: 16px;
       line-height: 1.6;
-      font-family: $inter;
+      font-family: $font-base;
       color: rgba(255, 255, 255, 0.82);
       text-decoration: none;
     }
@@ -2284,7 +2441,7 @@ body.modal-open {
     line-height: 1;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    font-family: $inter;
+    font-family: $font-base;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.48);
   }
@@ -2306,8 +2463,7 @@ body.modal-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -2320,7 +2476,7 @@ body.modal-open {
 
   &__route-btn {
     color: #fff;
-    background: linear-gradient(180deg, #ff8a46 0%, #b54608 100%);
+    background: $color-accent-gradient;
     box-shadow:
       0 18px 32px -14px rgba(255, 120, 50, 0.5),
       0 0 26px rgba(255, 120, 50, 0.14);
@@ -2373,234 +2529,7 @@ body.modal-open {
   }
 }
 
-.premium-form-card {
-  position: relative;
-  overflow: hidden;
-  padding: 34px 30px 30px;
-  border-radius: 30px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.055),
-      rgba(255, 255, 255, 0.015)
-    ),
-    #090909;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow:
-    0 30px 70px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 132, 58, 0.11) 0%,
-      transparent 40%,
-      transparent 100%
-    );
-  }
-
-  &__eyebrow {
-    position: relative;
-    z-index: 1;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 14px;
-    font-size: 11px;
-    line-height: 1;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    font-family: $inter;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.5);
-
-    &::before {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: rgba(255, 140, 70, 0.84);
-    }
-  }
-
-  &__title {
-    position: relative;
-    z-index: 1;
-    margin: 0 0 14px;
-    font-size: 34px;
-    line-height: 0.98;
-    text-transform: uppercase;
-    font-family: $RussoOne;
-    color: $white;
-  }
-
-  &__text {
-    position: relative;
-    z-index: 1;
-    margin: 0 0 24px;
-    font-size: 15px;
-    line-height: 1.75;
-    font-family: $inter;
-    color: rgba(255, 255, 255, 0.68);
-  }
-}
-
-.premium-form {
-  position: relative;
-  z-index: 1;
-
-  &__group {
-    margin-bottom: 14px;
-  }
-
-  &__input {
-    width: 100%;
-    min-height: 58px;
-    padding: 0 18px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
-    background: rgba(255, 255, 255, 0.04);
-    font-size: 15px;
-    font-family: $inter;
-    color: #fff;
-    outline: none;
-    transition:
-      border-color 0.25s ease,
-      background 0.25s ease,
-      box-shadow 0.25s ease;
-
-    &::placeholder {
-      color: rgba(255, 255, 255, 0.42);
-    }
-
-    &:focus {
-      border-color: rgba(255, 140, 70, 0.34);
-      background: rgba(255, 255, 255, 0.055);
-      box-shadow: 0 0 0 4px rgba(255, 120, 50, 0.08);
-    }
-  }
-
-  &__select {
-    appearance: none;
-    cursor: pointer;
-  }
-
-  &__textarea {
-    min-height: 130px;
-    padding-top: 16px;
-    resize: vertical;
-  }
-
-  &__btn {
-    width: 100%;
-    min-height: 60px;
-    padding: 0 24px;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
-    background: linear-gradient(180deg, #ff8a46 0%, #b54608 100%);
-    color: #fff;
-    font-family: $inter;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    box-shadow:
-      0 18px 32px -14px rgba(255, 120, 50, 0.52),
-      0 0 26px rgba(255, 120, 50, 0.16);
-    transition:
-      transform 0.3s ease,
-      filter 0.3s ease;
-
-    &:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.04);
-    }
-  }
-
-  &__disclaimer {
-    margin: 14px 0 0;
-    font-size: 13px;
-    line-height: 1.6;
-    font-family: $inter;
-    color: rgba(255, 255, 255, 0.46);
-  }
-
-  &__link {
-    color: rgba(255, 255, 255, 0.72);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-    transition:
-      color 0.25s ease,
-      border-color 0.25s ease;
-
-    &:hover {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.5);
-    }
-  }
-}
-
-.form-success,
-.form-error {
-  position: relative;
-  z-index: 1;
-  padding: 20px 18px;
-  margin-bottom: 18px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  h3 {
-    margin: 0 0 8px;
-    font-family: $RussoOne;
-    font-size: 20px;
-    line-height: 1.1;
-    color: $white;
-    text-transform: uppercase;
-  }
-
-  p {
-    margin: 0;
-    font-family: $inter;
-    font-size: 14px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
-  }
-}
-
-.form-btn--secondary {
-  margin-top: 14px;
-  min-height: 48px;
-  padding: 0 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  font-family: $inter;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.error-icon {
-  width: 42px;
-  height: 42px;
-  margin-bottom: 12px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 120, 50, 0.12);
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-}
-
+/* Contact premium: desktop narrow */
 @media (max-width: 1280px) {
   .contact-premium {
     padding: 100px 0 84px;
@@ -2616,6 +2545,7 @@ body.modal-open {
   }
 }
 
+/* Contact premium: tablet */
 @media (max-width: 1024px) {
   .contact-premium {
     &__info {
@@ -2635,17 +2565,9 @@ body.modal-open {
       }
     }
   }
-
-  .premium-form-card {
-    padding: 28px 24px 24px;
-    border-radius: 26px;
-
-    &__title {
-      font-size: 28px;
-    }
-  }
 }
 
+/* Contact premium: mobile */
 @media (max-width: 768px) {
   .contact-premium {
     padding: 76px 0 58px;
@@ -2711,7 +2633,281 @@ body.modal-open {
       }
     }
   }
+}
 
+/* Contact premium: small mobile */
+@media (max-width: 480px) {
+  .contact-premium {
+    padding: 60px 0 46px;
+
+    &__container {
+      padding: 0 12px;
+    }
+
+    &__title {
+      font-size: 34px;
+      letter-spacing: 0;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    &__info {
+      padding: 20px 14px 14px;
+      border-radius: 18px;
+    }
+
+    &__detail {
+      padding: 16px 14px 14px;
+      border-radius: 16px;
+    }
+
+    &__map-frame {
+      min-height: 240px;
+
+      iframe {
+        min-height: 240px;
+      }
+    }
+  }
+}
+
+/* =========================================================
+   PREMIUM FORM
+   Форма записи на сервис
+   ========================================================= */
+
+.premium-form-card {
+  position: relative;
+  overflow: hidden;
+  padding: 34px 30px 30px;
+  @include premium-panel(30px, $color-surface-3);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 132, 58, 0.11) 0%,
+      transparent 40%,
+      transparent 100%
+    );
+  }
+
+  &__eyebrow {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-family: $font-base;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+
+    &::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: rgba(255, 140, 70, 0.84);
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 14px;
+    font-size: 34px;
+    line-height: 0.98;
+    text-transform: uppercase;
+    font-family: $font-display;
+    color: $color-text-primary;
+  }
+
+  &__text {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 24px;
+    font-size: 15px;
+    line-height: 1.75;
+    font-family: $font-base;
+    color: rgba(255, 255, 255, 0.68);
+  }
+}
+
+.premium-form {
+  position: relative;
+  z-index: 1;
+
+  &__group {
+    margin-bottom: 14px;
+  }
+
+  &__input {
+    width: 100%;
+    min-height: 58px;
+    padding: 0 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 15px;
+    font-family: $font-base;
+    color: #fff;
+    outline: none;
+    transition:
+      border-color 0.25s ease,
+      background 0.25s ease,
+      box-shadow 0.25s ease;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.42);
+    }
+
+    &:focus {
+      border-color: rgba(255, 140, 70, 0.34);
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: 0 0 0 4px rgba(255, 120, 50, 0.08);
+    }
+  }
+
+  &__select {
+    appearance: none;
+    cursor: pointer;
+  }
+
+  &__textarea {
+    min-height: 130px;
+    padding-top: 16px;
+    resize: vertical;
+  }
+
+  &__btn {
+    width: 100%;
+    min-height: 60px;
+    padding: 0 24px;
+    border: none;
+    border-radius: 16px;
+    background: $color-accent-gradient;
+    color: #fff;
+    font-family: $font-base;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow:
+      0 18px 32px -14px rgba(255, 120, 50, 0.52),
+      0 0 26px rgba(255, 120, 50, 0.16);
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+    }
+  }
+
+  &__disclaimer {
+    margin: 14px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    font-family: $font-base;
+    color: rgba(255, 255, 255, 0.46);
+  }
+
+  &__link {
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
+
+    &:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.form-success,
+.form-error {
+  position: relative;
+  z-index: 1;
+  padding: 20px 18px;
+  margin-bottom: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  h3 {
+    margin: 0 0 8px;
+    font-family: $font-display;
+    font-size: 20px;
+    line-height: 1.1;
+    color: $color-text-primary;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+    font-family: $font-base;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.form-btn--secondary {
+  margin-top: 14px;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-family: $font-base;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.error-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 120, 50, 0.12);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* Premium form: tablet */
+@media (max-width: 1024px) {
+  .premium-form-card {
+    padding: 28px 24px 24px;
+    border-radius: 26px;
+
+    &__title {
+      font-size: 28px;
+    }
+  }
+}
+
+/* Premium form: mobile */
+@media (max-width: 768px) {
   .premium-form-card {
     padding: 24px 18px 20px;
     border-radius: 22px;
@@ -2766,43 +2962,8 @@ body.modal-open {
   }
 }
 
+/* Premium form: small mobile */
 @media (max-width: 480px) {
-  .contact-premium {
-    padding: 60px 0 46px;
-
-    &__container {
-      padding: 0 12px;
-    }
-
-    &__title {
-      font-size: 34px;
-      letter-spacing: 0;
-    }
-
-    &__subtitle {
-      font-size: 14px;
-      line-height: 1.65;
-    }
-
-    &__info {
-      padding: 20px 14px 14px;
-      border-radius: 18px;
-    }
-
-    &__detail {
-      padding: 16px 14px 14px;
-      border-radius: 16px;
-    }
-
-    &__map-frame {
-      min-height: 240px;
-
-      iframe {
-        min-height: 240px;
-      }
-    }
-  }
-
   .premium-form-card {
     padding: 20px 14px 16px;
     border-radius: 18px;
@@ -2820,12 +2981,16 @@ body.modal-open {
   }
 }
 
-// футер
+/* =========================================================
+   FOOTER
+   Нижняя часть сайта
+   ========================================================= */
+
 .footer {
   position: relative;
   width: 100%;
   padding: 84px 0 28px;
-  background: #060606;
+  background: $color-surface-1;
   color: $grey;
   overflow: hidden;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
@@ -2853,10 +3018,7 @@ body.modal-open {
   &__container {
     position: relative;
     z-index: 1;
-    width: 100%;
-    max-width: 1720px;
-    margin: 0 auto;
-    padding: 0 24px;
+    @include section-container(1720px, 0 24px);
   }
 
   &__top {
@@ -2876,7 +3038,7 @@ body.modal-open {
     align-items: center;
     gap: 10px;
     margin-bottom: 18px;
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 11px;
     font-weight: 700;
     line-height: 1;
@@ -2894,18 +3056,18 @@ body.modal-open {
 
   &__logo {
     margin-bottom: 18px;
-    font-family: $RussoOne;
+    font-family: $font-display;
     font-size: clamp(38px, 4.5vw, 72px);
     line-height: 0.92;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: $white;
+    color: $color-text-primary;
   }
 
   &__description {
     margin: 0;
     max-width: 520px;
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 16px;
     line-height: 1.85;
     color: rgba(255, 255, 255, 0.62);
@@ -2925,7 +3087,7 @@ body.modal-open {
   &__label {
     display: inline-flex;
     margin-bottom: 14px;
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 11px;
     font-weight: 700;
     line-height: 1;
@@ -2939,7 +3101,7 @@ body.modal-open {
   &__nav-link {
     display: block;
     margin: 0;
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 15px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.74);
@@ -2958,7 +3120,7 @@ body.modal-open {
   &__phone {
     margin-bottom: 6px;
     font-weight: 600;
-    color: $white;
+    color: $color-text-primary;
 
     &:hover {
       color: rgba(255, 255, 255, 0.8);
@@ -2988,7 +3150,7 @@ body.modal-open {
     width: fit-content;
 
     &:hover {
-      color: $white;
+      color: $color-text-primary;
       transform: translateX(3px);
     }
   }
@@ -3002,14 +3164,14 @@ body.modal-open {
   }
 
   &__copy {
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 13px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.38);
   }
 
   &__policy {
-    font-family: $inter;
+    font-family: $font-base;
     font-size: 13px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.58);
@@ -3017,12 +3179,13 @@ body.modal-open {
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 
     &:hover {
-      color: $white;
+      color: $color-text-primary;
       border-color: rgba(255, 255, 255, 0.34);
     }
   }
 }
 
+/* Footer: tablet */
 @media (max-width: 1200px) {
   .footer {
     padding: 72px 0 26px;
@@ -3044,6 +3207,7 @@ body.modal-open {
   }
 }
 
+/* Footer: medium tablet */
 @media (max-width: 1024px) {
   .footer {
     &__info {
@@ -3064,6 +3228,7 @@ body.modal-open {
   }
 }
 
+/* Footer: mobile */
 @media (max-width: 768px) {
   .footer {
     padding: 56px 0 22px;
@@ -3108,6 +3273,7 @@ body.modal-open {
   }
 }
 
+/* Footer: small mobile */
 @media (max-width: 480px) {
   .footer {
     padding: 46px 0 20px;
@@ -3136,19 +3302,4 @@ body.modal-open {
       gap: 22px;
     }
   }
-}
-
-@font-face {
-  font-family: inter;
-  src: url(../fonts/Inter_18pt-Medium.ttf);
-}
-
-@font-face {
-  font-family: oswald;
-  src: url(../fonts/Oswald-Medium.ttf);
-}
-
-@font-face {
-  font-family: russoone;
-  src: url(../fonts/RussoOne-Regular.ttf);
 }
