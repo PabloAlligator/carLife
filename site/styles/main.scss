@@ -90,7 +90,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  outline: 5px solid red;
 }
 
 *,
@@ -205,13 +204,12 @@ select:focus-visible {
   &__overlay {
     position: absolute;
     inset: 0;
-    background:
-      linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.42) 0%,
-        rgba(0, 0, 0, 0.52) 40%,
-        rgba(0, 0, 0, 0.72) 100%
-      );
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.42) 0%,
+      rgba(0, 0, 0, 0.52) 40%,
+      rgba(0, 0, 0, 0.72) 100%
+    );
     z-index: 1;
   }
 
@@ -562,6 +560,7 @@ select:focus-visible {
   position: relative;
   padding: 130px 0 110px;
   overflow: clip;
+  margin-left: 20px;
 
   &::before {
     content: '';
@@ -738,6 +737,7 @@ select:focus-visible {
     text-transform: uppercase;
     font-family: $font-display;
     color: $color-text-primary;
+    word-break: break-word;
   }
 
   &__stat-label {
@@ -749,6 +749,7 @@ select:focus-visible {
     line-height: 1.55;
     font-family: $font-base;
     color: rgba(255, 255, 255, 0.56);
+    max-width: 200px;
   }
 
   &__visual {
