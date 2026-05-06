@@ -109,23 +109,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     return `+7 (${normalized.slice(1, 4)}) ${normalized.slice(
       4,
-      7
+      7,
     )}-${normalized.slice(7, 9)}-${normalized.slice(9, 11)}`;
   }
 
-  function resetForm() {
-    if (!form) return;
+  // function resetForm() {
+  //   if (!form) return;
 
-    form.reset();
-    form.style.display = '';
-    if (successMsg) successMsg.style.display = 'none';
-    if (errorMsg) errorMsg.style.display = 'none';
+  //   form.reset();
+  //   form.style.display = '';
+  //   if (successMsg) successMsg.style.display = 'none';
+  //   if (errorMsg) errorMsg.style.display = 'none';
 
-    if (submitBtn) submitBtn.disabled = false;
-    if (btnText) btnText.textContent = 'ЗАПИСАТЬСЯ НА СЕРВИС';
-  }
+  //   if (submitBtn) submitBtn.disabled = false;
+  //   if (btnText) btnText.textContent = 'ЗАПИСАТЬСЯ НА СЕРВИС';
+  // }
 
-  window.resetForm = resetForm;
+  // window.resetForm = resetForm;
 
   /* =========================================================
      5. МАСКА / ОГРАНИЧЕНИЕ ВВОДА ТЕЛЕФОНА
@@ -211,7 +211,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (typeof Swiper !== 'undefined' && document.querySelector('.otzyvy-slider')) {
+  if (
+    typeof Swiper !== 'undefined' &&
+    document.querySelector('.otzyvy-slider')
+  ) {
     reviewsSwiper = new Swiper('.otzyvy-slider', {
       slidesPerView: 3,
       spaceBetween: 20,
@@ -264,126 +267,140 @@ document.addEventListener('DOMContentLoaded', () => {
   const errorMsg = document.getElementById('errorMessage');
   const submitBtn = document.getElementById('submitBtn');
   const btnText = submitBtn?.querySelector('.btn-text');
+  const formTimeInput = document.getElementById('formTime');
+
+  function resetForm() {
+    if (!form) return;
+
+    form.reset();
+    form.style.display = '';
+
+    if (formTimeInput) formTimeInput.value = String(Date.now());
+    if (successMsg) successMsg.style.display = 'none';
+    if (errorMsg) errorMsg.style.display = 'none';
+
+    if (submitBtn) submitBtn.disabled = false;
+    if (btnText) btnText.textContent = 'ЗАПИСАТЬСЯ НА СЕРВИС';
+  }
+
+  window.resetForm = resetForm;
+
+  if (formTimeInput) {
+    formTimeInput.value = String(Date.now());
+  }
+
+  function showFormError(title, text) {
+    if (!errorMsg) return;
+
+    errorMsg.style.display = 'block';
+    errorMsg.innerHTML = `
+    <div class="error-icon">✕</div>
+    <h3>${title}</h3>
+    <p>${text}</p>
+  `;
+  }
+
+  function resetSubmitButton() {
+    if (submitBtn) submitBtn.disabled = false;
+    if (btnText) btnText.textContent = 'ЗАПИСАТЬСЯ НА СЕРВИС';
+  }
 
   if (form) {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
-      if (errorMsg) {
-        errorMsg.style.display = 'none';
-        errorMsg.innerHTML = `
-          <div class="error-icon">✕</div>
-          <h3>Ошибка отправки</h3>
-          <p>Попробуйте позже или позвоните: +7 (923) 390-00-00</p>
-        `;
-      }
+      if (errorMsg) errorMsg.style.display = 'none';
+      if (successMsg) successMsg.style.display = 'none';
 
       const formData = new FormData(form);
 
       const rawName = (formData.get('name') || '').toString().trim();
       const rawPhone = (formData.get('phone') || '').toString().trim();
       const rawService = (formData.get('service') || '').toString().trim();
-      const rawComment = (formData.get('comment') || '').toString().trim();
+      const rawMessage = (formData.get('message') || '').toString().trim();
+      const website = (formData.get('website') || '').toString().trim();
+      const formTime = (formData.get('form_time') || '').toString().trim();
+      const page = (formData.get('page') || document.title).toString().trim();
 
-      if (!rawName) {
-        if (errorMsg) {
-          errorMsg.style.display = 'block';
-          errorMsg.innerHTML = `
-            <div class="error-icon">✕</div>
-            <h3>Проверьте имя</h3>
-            <p>Введите ваше имя.</p>
-          `;
-        }
+      if (website) {
+        showFormError(
+          'Ошибка отправки',
+          'Попробуйте позже или позвоните: +7 (923) 390-00-00',
+        );
+        return;
+      }
+
+      if (!rawName || rawName.length < 2) {
+        showFormError('Проверьте имя', 'Введите ваше имя.');
         return;
       }
 
       if (!isValidRussianPhone(rawPhone)) {
-        if (errorMsg) {
-          errorMsg.style.display = 'block';
-          errorMsg.innerHTML = `
-            <div class="error-icon">✕</div>
-            <h3>Проверьте номер телефона</h3>
-            <p>Введите номер в формате 89233900000, +79233900000 или 8 (923) 390-00-00.</p>
-          `;
-        }
+        showFormError(
+          'Проверьте номер телефона',
+          'Введите номер в формате 89233900000, +79233900000 или 8 (923) 390-00-00.',
+        );
         return;
       }
 
       if (!rawService) {
-        if (errorMsg) {
-          errorMsg.style.display = 'block';
-          errorMsg.innerHTML = `
-            <div class="error-icon">✕</div>
-            <h3>Выберите услугу</h3>
-            <p>Нужно выбрать услугу перед отправкой.</p>
-          `;
-        }
+        showFormError(
+          'Выберите услугу',
+          'Нужно выбрать услугу перед отправкой.',
+        );
         return;
       }
 
       if (submitBtn) submitBtn.disabled = true;
       if (btnText) btnText.textContent = 'ОТПРАВЛЯЕМ...';
 
-      const data = {
-        name: rawName || '—',
-        phone: formatPhoneForSend(rawPhone) || rawPhone,
-        service: rawService || '—',
-        comment: rawComment || '—',
-        send_date: new Date().toLocaleString('ru-RU', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-        }),
+      const payload = {
+        name: rawName,
+        phone: formatPhoneForSend(rawPhone),
+        service: rawService,
+        message: rawMessage,
+        website,
+        form_time: formTime,
+        page,
       };
 
-      if (typeof emailjs === 'undefined') {
-        console.error('EmailJS не подключён');
+      try {
+        const response = await fetch('/api/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
 
-        if (errorMsg) {
-          errorMsg.style.display = 'block';
-          errorMsg.innerHTML = `
-            <div class="error-icon">✕</div>
-            <h3>EmailJS не подключён</h3>
-            <p>Подключите библиотеку EmailJS или временно отключите отправку формы.</p>
-          `;
+        const result = await response.json().catch(() => null);
+
+        if (!response.ok || !result?.success) {
+          throw new Error(result?.message || 'Ошибка отправки заявки.');
         }
 
-        if (submitBtn) submitBtn.disabled = false;
-        if (btnText) btnText.textContent = 'ЗАПИСАТЬСЯ НА СЕРВИС';
-        return;
+        if (successMsg) successMsg.style.display = 'block';
+        if (errorMsg) errorMsg.style.display = 'none';
+
+        form.reset();
+        form.style.display = 'none';
+
+        if (formTimeInput) {
+          formTimeInput.value = String(Date.now());
+        }
+
+        resetSubmitButton();
+      } catch (error) {
+        console.error('Ошибка отправки формы:', error);
+
+        showFormError(
+          'Ошибка отправки',
+          error.message || 'Попробуйте позже или позвоните: +7 (923) 390-00-00',
+        );
+
+        if (successMsg) successMsg.style.display = 'none';
+        resetSubmitButton();
       }
-
-      emailjs
-        .send('service_qxejzo5', 'template_kqa0m2l', data)
-        .then((response) => {
-          console.log('Успех EmailJS:', response.status, response.text);
-
-          if (successMsg) successMsg.style.display = 'block';
-          if (errorMsg) errorMsg.style.display = 'none';
-          form.style.display = 'none';
-
-          if (submitBtn) submitBtn.disabled = false;
-          if (btnText) btnText.textContent = 'ЗАПИСАТЬСЯ НА СЕРВИС';
-        })
-        .catch((err) => {
-          console.error('Ошибка EmailJS:', err);
-
-          if (errorMsg) {
-            errorMsg.style.display = 'block';
-            errorMsg.innerHTML = `
-              <div class="error-icon">✕</div>
-              <h3>Ошибка отправки</h3>
-              <p>Попробуйте позже или позвоните: +7 (923) 390-00-00</p>
-            `;
-          }
-
-          if (successMsg) successMsg.style.display = 'none';
-
-          if (submitBtn) submitBtn.disabled = false;
-          if (btnText) btnText.textContent = 'ЗАПИСАТЬСЯ НА СЕРВИС';
-        });
     });
   }
 
@@ -402,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalText = document.getElementById('serviceModalText');
     const modalPhone = document.getElementById('serviceModalPhone');
     const modalPhoneNumber = modalPhone?.querySelector(
-      '.service-modal__phone-number'
+      '.service-modal__phone-number',
     );
 
     const serviceCards = document.querySelectorAll('.uslugi__element');
@@ -420,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         return `+7 (${normalized.slice(1, 4)}) ${normalized.slice(
           4,
-          7
+          7,
         )}-${normalized.slice(7, 9)}-${normalized.slice(9, 11)}`;
       }
 
