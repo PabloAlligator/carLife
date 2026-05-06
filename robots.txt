@@ -1,0 +1,7 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://carlife-abakan.ru/sitemap.xml
+
+Host: https://carlife-abakan.ru
