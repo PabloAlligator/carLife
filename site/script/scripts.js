@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* =========================================================
-     1. БУРГЕР-МЕНЮ
-     ========================================================= */
+  /* 1. БУРГЕР-МЕНЮ */
 
   const burger = document.querySelector('.header__burger');
   const nav = document.querySelector('.header__nav');
@@ -17,9 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* =========================================================
-     2. ПОЯВЛЕНИЕ / СКРЫТИЕ ШАПКИ ПРИ СКРОЛЛЕ
-     ========================================================= */
+  /* 2. ПОЯВЛЕНИЕ / СКРЫТИЕ ШАПКИ ПРИ СКРОЛЛЕ */
 
   if (header) {
     let lastScroll = 0;
@@ -45,9 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* =========================================================
-     3. ПЛАВНЫЙ СКРОЛЛ К СЕКЦИЯМ
-     ========================================================= */
+  /* 3. ПЛАВНЫЙ СКРОЛЛ К СЕКЦИЯМ */
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', function (e) {
@@ -79,9 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* =========================================================
-     4. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ ФОРМЫ
-     ========================================================= */
+  /*  4. ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ ФОРМЫ */
 
   function normalizeRussianPhone(phone) {
     const digits = String(phone || '').replace(/\D/g, '');
@@ -127,9 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // window.resetForm = resetForm;
 
-  /* =========================================================
-     5. МАСКА / ОГРАНИЧЕНИЕ ВВОДА ТЕЛЕФОНА
-     ========================================================= */
+  /* 5. МАСКА / ОГРАНИЧЕНИЕ ВВОДА ТЕЛЕФОНА */
 
   const phoneInput = document.querySelector('input[name="phone"]');
 
@@ -149,9 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* =========================================================
-     6. ОТЗЫВЫ / SWIPER
-     ========================================================= */
+  /* 6. ОТЗЫВЫ / SWIPER */
 
   let reviewsSwiper = null;
 
@@ -258,9 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* =========================================================
-     7. ФОРМА ЗАЯВКИ
-     ========================================================= */
+  /* 7. ФОРМА ЗАЯВКИ */
 
   const form = document.getElementById('connectForm');
   const successMsg = document.getElementById('successMessage');
@@ -404,9 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* =========================================================
-     8. МОДАЛКА УСЛУГ
-     ========================================================= */
+  /* 8. МОДАЛКА УСЛУГ */
 
   const modal = document.getElementById('serviceModal');
 
