@@ -2692,6 +2692,9 @@ body.modal-open {
 .footer__column {
   min-width: 0;
 }
+.footer__column a span {
+  color: #f47a1f;
+}
 .footer__label {
   display: inline-flex;
   margin-bottom: 14px;

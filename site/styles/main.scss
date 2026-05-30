@@ -3169,6 +3169,11 @@ body.modal-open {
 
   &__column {
     min-width: 0;
+    a {
+      span {
+        color: $color-accent-light;
+      }
+    }
   }
 
   &__label {
