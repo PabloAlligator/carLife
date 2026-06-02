@@ -519,7 +519,7 @@ select:focus-visible {
     font-size: 14px;
   }
   .hero__features {
-    grid-template-columns: 1fr;
+    display: none;
   }
 }
 /*   ABOUT
