@@ -87,32 +87,46 @@
         <div class="hero__overlay"></div>
 
         <div class="hero-container">
-          <p class="hero__subtitle">РЕМОНТ НЕМЕЦКИХ АВТОМОБИЛЕЙ В АБАКАНЕ</p>
+          <p class="hero__subtitle">АВТОСЕРВИС В АБАКАНЕ</p>
 
           <h1 class="hero__title">
-            BMW • MERCEDES • AUDI <br />
-            <span>ЧЕСТНЫЙ АВТОСЕРВИС</span> В АБАКАНЕ
+            ЗАБОТА О ВАШЕМ АВТО
+            <span>НАШ ПРИОРИТЕТ</span>
           </h1>
 
           <p class="hero__description">
-            Автосервис CarLife в Абакане — диагностика, ремонт и обслуживание
-            немецких автомобилей. Специализируемся на BMW, Mercedes, Audi,
-            Volkswagen и Skoda, а также работаем с автомобилями других марок.
-            Честно объясняем неисправности и не навязываем лишний ремонт.
+            Профессиональный подход, современное оборудование и честный сервис
+            для вашего автомобиля.
           </p>
 
-          <div class="hero__features">
-            <div class="hero__feature">Без лишнего ремонта</div>
-            <div class="hero__feature">Честная диагностика</div>
-            <div class="hero__feature">Опыт более 7 лет</div>
+          <div class="hero__buttons">
+            <a href="#uslugi" class="btn btn--primary">Наши услуги</a>
+            <a href="#connect" class="btn btn--outline">Записаться на сервис</a>
           </div>
 
-          <div class="hero__buttons">
-            <a href="#connect" class="btn btn--primary">
-              ЗАПИСАТЬСЯ НА ДИАГНОСТИКУ
-            </a>
+          <div
+            class="hero__features"
+            aria-label="Преимущества автосервиса CarLife"
+          >
+            <div class="hero__feature">
+              <span class="hero__feature-icon">✓</span>
+              <span>Гарантия<br />на работы</span>
+            </div>
 
-            <a href="tel:+79233900000" class="btn btn--outline"> ПОЗВОНИТЬ </a>
+            <div class="hero__feature">
+              <span class="hero__feature-icon">●</span>
+              <span>Опытные<br />специалисты</span>
+            </div>
+
+            <div class="hero__feature">
+              <span class="hero__feature-icon">⚙</span>
+              <span>Современное<br />оборудование</span>
+            </div>
+
+            <div class="hero__feature">
+              <span class="hero__feature-icon">₽</span>
+              <span>Честные<br />цены</span>
+            </div>
           </div>
         </div>
       </section>
@@ -124,21 +138,19 @@
             <span class="about__eyebrow">О сервисе</span>
 
             <h2 class="about__title">
-              СЕРВИС, ГДЕ <span>ВАЖНЫ ТОЧНОСТЬ, ЧЕСТНОСТЬ И РЕЗУЛЬТАТ</span>
+              Сервис, где важны <span>точность, честность и результат</span>
             </h2>
 
-            <p class="about__text">
+            <p class="about__lead">
               CarLife — автосервис в Абакане, специализирующийся на ремонте и
-              обслуживании немецких автомобилей. Мы хорошо знаем особенности
-              BMW, Mercedes, Audi, Volkswagen и Skoda, а также работаем с
-              автомобилями других марок.
+              обслуживании немецких автомобилей.
             </p>
 
-            <p class="about__text about__text--secondary">
-              Работаем с вниманием к деталям, используем профессиональное
+            <p class="about__text">
+              Мы хорошо знаем особенности BMW, Mercedes, Audi, Volkswagen и
+              Skoda, работаем с вниманием к деталям, используем профессиональное
               оборудование и подбираем решение под реальное состояние
-              автомобиля. Для нас важен не поток, а результат, за который можно
-              отвечать.
+              автомобиля.
             </p>
 
             <div class="about__stats">
@@ -153,7 +165,9 @@
               </div>
 
               <div class="about__stat">
-                <span class="about__stat-number">ЧЕСТНО</span>
+                <span class="about__stat-number about__stat-number--text"
+                  >Честно</span
+                >
                 <span class="about__stat-label"
                   >объясняем работы и не навязываем лишнее</span
                 >
@@ -167,6 +181,8 @@
                 src="site/img/hero-back.jpg"
                 alt="Мастера автосервиса CarLife за работой"
                 class="about__image"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 
@@ -195,13 +211,13 @@
             <div class="cta__actions">
               <!-- не забыть посмтавить номер или ссылку коляна -->
               <a
-                href="https://t.me/AutoCat19bot"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="cta__btn cta__btn--max"
                 aria-label="Написать в MAX"
               >
-                > Написать в MAX
+                Написать в MAX
               </a>
 
               <a href="tel:+79233900000" class="cta__btn cta__btn--phone">
@@ -212,164 +228,95 @@
         </div>
       </section>
 
-      <!-- Uslugi -->
-
       <section class="uslugi" id="uslugi">
         <div class="uslugi-container">
-          <div
+          <article
             class="uslugi__element"
-            data-title="СЛЕСАРНЫЙ РЕМОНТ"
-            data-text="Ремонт ходовой, подвески, тормозной системы любой сложности, проточка тормозных дисков."
-            data-image="site/img/uslugi/skwsar.png"
-            data-phone="+7 (923) 390-00-00"
-          >
-            <img src="site/img/icons8-settings-50.png" alt="Слесарный ремонт" />
-            <span class="uslugi__eyebrow">Service</span>
-            <!-- <h3>СЛЕСАРНЫЙ РЕМОНТ</h3>
-            <p>Ремонт ходовой, подвески и тормозной системы любой сложности</p> -->
-            <a
-              href="#connect"
-              class="uslugi__trigger"
-              aria-label="Подробнее о слесарном ремонте"
-            >
-              <img
-                src="site/img/icons8-шеврон-вниз-в-круге-50.png"
-                alt="Ремонт подвески автомобиля в автосервисе CarLife"
-              />
-            </a>
-          </div>
-
-          <div
-            class="uslugi__element"
-            data-title="ДИАГНОСТИКА"
-            data-text="Компьютерная диагностика всех систем автомобиля на профессиональном оборудовании."
-            data-image="site/img/uslugi/diagbostika.png"
-            data-phone="+7 (923) 390-00-00"
-          >
-            <img src="site/img/icons8-timer-50 (1).png" alt="Диагностика" />
-            <span class="uslugi__eyebrow">Technology</span>
-            <!-- <h3>ДИАГНОСТИКА</h3>
-            <p>
-              Компьютерная проверка всех систем автомобиля на профессиональном
-              оборудовании
-            </p> -->
-            <a
-              href="#connect"
-              class="uslugi__trigger"
-              aria-label="Подробнее о диагностике"
-            >
-              <img
-                src="site/img/icons8-шеврон-вниз-в-круге-50.png"
-                alt="Подробнее о диагностике"
-              />
-            </a>
-          </div>
-
-          <div
-            class="uslugi__element"
-            data-title="ТО И ЗАМЕНА МАСЛА"
-            data-text="Регламентное обслуживание с сохранением гарантии. Оригинальные масла и качественные расходные материалы."
-            data-image="site/img/uslugi/zamena.png"
-            data-phone="+7 (923) 390-00-00"
-          >
-            <img
-              src="site/img/icons8-timer-50 (1).png"
-              alt="ТО и замена масла"
-            />
-            <span class="uslugi__eyebrow">Maintenance</span>
-            <!-- <h3>ТО И ЗАМЕНА МАСЛА</h3>
-            <p>
-              Регламентное обслуживание, оригинальные масла и качественные
-              расходники
-            </p> -->
-            <a
-              href="#connect"
-              class="uslugi__trigger"
-              aria-label="Подробнее о техническом обслуживании"
-            >
-              <img
-                src="site/img/icons8-шеврон-вниз-в-круге-50.png"
-                alt="Подробнее о техническом обслуживании"
-              />
-            </a>
-          </div>
-
-          <div
-            class="uslugi__element"
+            style="--service-image: url('../img/uslugi/tuning.png')"
             data-title="ЧИП-ТЮНИНГ"
             data-text="Увеличение мощности, отключение EGR/DPF, прошивка под Евро-2/3/4, удаление катализатора."
             data-image="site/img/uslugi/tuning.png"
             data-phone="+7 (923) 390-00-00"
           >
-            <img src="site/img/icons8-fire-50 (1).png" alt="Чип-тюнинг" />
             <span class="uslugi__eyebrow">Performance</span>
-            <!-- <h3>ЧИП-ТЮНИНГ</h3>
+            <h3>Чип-тюнинг</h3>
             <p>
-              Увеличение мощности, настройка ECU и оптимизация работы двигателя
-            </p> -->
-            <a
-              href="#connect"
-              class="uslugi__trigger"
-              aria-label="Подробнее о чип-тюнинге"
-            >
-              <img
-                src="site/img/icons8-шеврон-вниз-в-круге-50.png"
-                alt="Подробнее о чип-тюнинге"
-              />
-            </a>
-          </div>
+              Настройка ECU, увеличение мощности и оптимизация работы двигателя.
+            </p>
+            <span class="uslugi__trigger">→</span>
+          </article>
 
-          <div
+          <article
             class="uslugi__element"
+            style="--service-image: url('../img/uslugi/diagbostika.png')"
+            data-title="ДИАГНОСТИКА"
+            data-text="Компьютерная диагностика всех систем автомобиля на профессиональном оборудовании."
+            data-image="site/img/uslugi/diagbostika.png"
+            data-phone="+7 (923) 390-00-00"
+          >
+            <span class="uslugi__eyebrow">Technology</span>
+            <h3>Диагностика</h3>
+            <p>Компьютерная проверка всех систем автомобиля перед ремонтом.</p>
+            <span class="uslugi__trigger">→</span>
+          </article>
+
+          <article
+            class="uslugi__element"
+            style="--service-image: url('../img/uslugi/skwsar.png')"
+            data-title="СЛЕСАРНЫЙ РЕМОНТ"
+            data-text="Ремонт ходовой, подвески, тормозной системы любой сложности, проточка тормозных дисков."
+            data-image="site/img/uslugi/skwsar.png"
+            data-phone="+7 (923) 390-00-00"
+          >
+            <span class="uslugi__eyebrow">Service</span>
+            <h3>Слесарный ремонт</h3>
+            <p>
+              Подвеска, тормоза, ходовая часть и технические узлы автомобиля.
+            </p>
+            <span class="uslugi__trigger">→</span>
+          </article>
+
+          <article
+            class="uslugi__element"
+            style="--service-image: url('../img/uslugi/zamena.png')"
+            data-title="ТО И ЗАМЕНА МАСЛА"
+            data-text="Регламентное обслуживание с сохранением гарантии. Оригинальные масла и качественные расходные материалы."
+            data-image="site/img/uslugi/zamena.png"
+            data-phone="+7 (923) 390-00-00"
+          >
+            <span class="uslugi__eyebrow">Maintenance</span>
+            <h3>ТО и замена масла</h3>
+            <p>Регламентное обслуживание, масла и качественные расходники.</p>
+            <span class="uslugi__trigger">→</span>
+          </article>
+
+          <article
+            class="uslugi__element"
+            style="--service-image: url('../img/uslugi/dvigatel.png')"
             data-title="РЕМОНТ ДВИГАТЕЛЯ"
             data-text="Капитальный ремонт ДВС, замена ГРМ, ремонт ГБЦ с гарантией и качественными комплектующими."
             data-image="site/img/uslugi/dvigatel.png"
             data-phone="+7 (923) 390-00-00"
           >
-            <img src="site/img/icons8-settings-50.png" alt="Ремонт двигателя" />
             <span class="uslugi__eyebrow">Engine Lab</span>
-            <!-- <h3>РЕМОНТ ДВИГАТЕЛЯ</h3>
-            <p>
-              Капитальный ремонт ДВС, замена ГРМ и восстановление узлов с
-              гарантией
-            </p> -->
-            <a
-              href="#connect"
-              class="uslugi__trigger"
-              aria-label="Подробнее о ремонте двигателя"
-            >
-              <img
-                src="site/img/icons8-шеврон-вниз-в-круге-50.png"
-                alt="Подробнее о ремонте двигателя"
-              />
-            </a>
-          </div>
+            <h3>Ремонт двигателя</h3>
+            <p>Капитальный ремонт ДВС, ГРМ, ГБЦ и восстановление узлов.</p>
+            <span class="uslugi__trigger">→</span>
+          </article>
 
-          <div
+          <article
             class="uslugi__element"
+            style="--service-image: url('../img/uslugi/shod-razval.png')"
             data-title="СХОД-РАЗВАЛ 3D"
             data-text="Высокоточная регулировка углов установки колёс на профессиональном 3D-стенде."
             data-image="site/img/uslugi/shod-razval.png"
             data-phone="+7 (923) 390-00-00"
           >
-            <img src="site/img/icons8-location-50.png" alt="Сход-развал 3D" />
             <span class="uslugi__eyebrow">Precision</span>
-            <!-- <h3>СХОД-РАЗВАЛ 3D</h3> -->
-            <!-- <p>
-              Точная регулировка углов установки колёс на профессиональном
-              3D-стенде
-            </p> -->
-            <a
-              href="#connect"
-              class="uslugi__trigger"
-              aria-label="Подробнее о сход-развале 3D"
-            >
-              <img
-                src="site/img/icons8-шеврон-вниз-в-круге-50.png"
-                alt="Подробнее о сход-развале 3D"
-              />
-            </a>
-          </div>
+            <h3>Сход-развал 3D</h3>
+            <p>Точная регулировка углов установки колёс на 3D-стенде.</p>
+            <span class="uslugi__trigger">→</span>
+          </article>
         </div>
       </section>
 
@@ -402,14 +349,14 @@
                     </div>
                   </div>
 
-                  <div class="otzyvy-card__image">
+                  <!-- <div class="otzyvy-card__image">
                     <img
                       src="site/img/hero-back.jpg"
                       alt="Отзыв клиента Павел Ш. о ремонте Mercedes C180"
                       loading="lazy"
                       decoding="async"
                     />
-                  </div>
+                  </div> -->
 
                   <div class="otzyvy-card__content">
                     <p class="otzyvy-card__text">
@@ -449,14 +396,14 @@
                     </div>
                   </div>
 
-                  <div class="otzyvy-card__image">
+                  <!-- <div class="otzyvy-card__image">
                     <img
                       src="site/img/hero-back.jpg"
                       alt="Отзыв клиента Алексей К. о ремонте BMW X5 E70"
                       loading="lazy"
                       decoding="async"
                     />
-                  </div>
+                  </div> -->
 
                   <div class="otzyvy-card__content">
                     <p class="otzyvy-card__text">
@@ -487,14 +434,14 @@
                     </div>
                   </div>
 
-                  <div class="otzyvy-card__image">
+                  <!-- <div class="otzyvy-card__image">
                     <img
                       src="site/img/hero-back.jpg"
                       alt="Отзыв клиента Дмитрий В. о ремонте Audi A6 C7"
                       loading="lazy"
                       decoding="async"
                     />
-                  </div>
+                  </div> -->
 
                   <div class="otzyvy-card__content">
                     <p class="otzyvy-card__text">
@@ -525,14 +472,14 @@
                     </div>
                   </div>
 
-                  <div class="otzyvy-card__image">
+                  <!-- <div class="otzyvy-card__image">
                     <img
                       src="site/img/hero-back.jpg"
                       alt="Отзыв клиента Никита М. о ремонте Volkswagen Touareg"
                       loading="lazy"
                       decoding="async"
                     />
-                  </div>
+                  </div> -->
 
                   <div class="otzyvy-card__content">
                     <p class="otzyvy-card__text">
@@ -563,14 +510,14 @@
                     </div>
                   </div>
 
-                  <div class="otzyvy-card__image">
+                  <!-- <div class="otzyvy-card__image">
                     <img
                       src="site/img/hero-back.jpg"
                       alt="Отзыв клиента Егор С. о ремонте Skoda Octavia"
                       loading="lazy"
                       decoding="async"
                     />
-                  </div>
+                  </div> -->
 
                   <div class="otzyvy-card__content">
                     <p class="otzyvy-card__text">
@@ -601,14 +548,14 @@
                     </div>
                   </div>
 
-                  <div class="otzyvy-card__image">
+                  <!-- <div class="otzyvy-card__image">
                     <img
                       src="site/img/hero-back.jpg"
                       alt="Отзыв клиента Илья Т. о ремонте BMW 530d "
                       loading="lazy"
                       decoding="async"
                     />
-                  </div>
+                  </div> -->
 
                   <div class="otzyvy-card__content">
                     <p class="otzyvy-card__text">
@@ -639,14 +586,14 @@
                     </div>
                   </div>
 
-                  <div class="otzyvy-card__image">
+                  <!-- <div class="otzyvy-card__image">
                     <img
                       src="site/img/hero-back.jpg"
                       alt="Отзыв клиента Максим П. о ремонте Audi Q5 "
                       loading="lazy"
                       decoding="async"
                     />
-                  </div>
+                  </div> -->
 
                   <div class="otzyvy-card__content">
                     <p class="otzyvy-card__text">
@@ -928,8 +875,13 @@
                 Записаться в MAX
               </a>
               <p class="footer__text">ИНН 190105021016</p>
-              <p class="footer__text">ОГРНИП 313190122800014 <br> от 16.08.2013</p>
-              <p class="footer__text">Индивидуальный предприниматель Лайков Николай Николаевич</p>
+              <p class="footer__text">
+                ОГРНИП 313190122800014 <br />
+                от 16.08.2013
+              </p>
+              <p class="footer__text">
+                Индивидуальный предприниматель Лайков Николай Николаевич
+              </p>
             </div>
 
             <div class="footer__column">
@@ -945,7 +897,9 @@
                 <a href="#uslugi" class="footer__nav-link">Услуги</a>
                 <a href="#contacts" class="footer__nav-link">Контакты</a>
                 <a href="#connect" class="footer__nav-link">Запись</a>
-                <a href="#connect" class="footer__nav-link">Разработка и дизайн сайта <span>ShumDev</span></a>
+                <a href="#connect" class="footer__nav-link"
+                  >Разработка и дизайн сайта <span>ShumDev</span></a
+                >
               </div>
             </div>
           </div>
@@ -955,7 +909,9 @@
           <span class="footer__copy"
             >© 2025–2026 CAR LIFE. Все права защищены.</span
           >
-          <a href="/privacy-policy.html" class="footer__policy">Политика конфиденциальности</a>
+          <a href="/privacy-policy.html" class="footer__policy"
+            >Политика конфиденциальности</a
+          >
         </div>
       </div>
     </footer>
@@ -1021,8 +977,15 @@
       {
         "@context": "https://schema.org",
         "@type": "AutoRepair",
+        "@id": "https://carlife-abakan.ru/#autorepair",
         "name": "CarLife",
-        "image": "https://carlife-abakan.ru/site/img/hero-back.jpg",
+        "alternateName": "Автосервис CarLife",
+        "description": "Автосервис CarLife в Абакане: диагностика автомобилей, слесарный ремонт, ремонт двигателя, чип-тюнинг, сход-развал 3D, ТО и замена масла.",
+        "image": [
+          "https://carlife-abakan.ru/site/img/hero-back.jpg",
+          "https://carlife-abakan.ru/site/img/logo.png"
+        ],
+        "logo": "https://carlife-abakan.ru/site/img/logo.png",
         "url": "https://carlife-abakan.ru/",
         "telephone": "+79233900000",
         "priceRange": "₽₽",
@@ -1036,9 +999,14 @@
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": "53.72826",
-          "longitude": "91.36018"
+          "latitude": 53.72826,
+          "longitude": 91.36018
         },
+        "areaServed": {
+          "@type": "City",
+          "name": "Абакан"
+        },
+        "openingHours": ["Mo-Fr 09:00-18:00", "Sa 09:00-17:00"],
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -1059,14 +1027,59 @@
             "closes": "17:00"
           }
         ],
-        "sameAs": ["https://t.me/AutoCat19bot"],
+        "paymentAccepted": ["Cash", "Card", "BankTransfer"],
+        "currenciesAccepted": "RUB",
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Чип-тюнинг автомобилей"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Компьютерная диагностика автомобилей"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Слесарный ремонт автомобилей"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "ТО и замена масла"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Ремонт двигателя"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Сход-развал 3D"
+            }
+          }
+        ],
         "serviceType": [
+          "Чип-тюнинг",
           "Диагностика автомобилей",
           "Слесарный ремонт",
+          "ТО и замена масла",
           "Ремонт двигателя",
-          "Сход-развал 3D",
-          "Чип-тюнинг",
-          "ТО и замена масла"
+          "Сход-развал 3D"
         ]
       }
     </script>
