@@ -116,7 +116,7 @@ body {
           }
         }
 
-        &:last-child a {
+        &:nth-child(5), &:nth-child(6) a {
           padding: 10px 20px;
           color: white;
           background: $color-accent;
@@ -144,6 +144,11 @@ body {
             background: white;
             transform: skew(-15deg) scale(1.05);
           }
+
+        }
+
+        &:last-child {
+          display: none;
         }
       }
     }
@@ -204,6 +209,10 @@ body {
     opacity: 0;
     transform: translateX(40px);
     transition: 0.4s ease;
+
+    &:last-child {
+      display: block;
+    }
   }
 
   .header__nav.active ul li {

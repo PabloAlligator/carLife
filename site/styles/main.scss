@@ -216,11 +216,11 @@ select:focus-visible {
     background:
       linear-gradient(
         180deg,
-        rgba(0, 0, 0, 0.32) 0%,
-        rgba(0, 0, 0, 0.08) 38%,
+        rgba(0, 0, 0, 0.52) 0%,
+        rgba(0, 0, 0, 0.01) 38%,
         rgba(0, 0, 0, 0.82) 100%
       ),
-      radial-gradient(circle at 72% 50%, rgba(220, 0, 0, 0.12), transparent 36%);
+      radial-gradient(circle at 72% 50%, rgba(220, 0, 0, 0.002), transparent 36%);
   }
 
   &-container {
@@ -471,8 +471,7 @@ select:focus-visible {
   }
 }
 
-/*   ABOUT
-   Блок о сервисе */
+/*   ABOUT */
 .about {
   position: relative;
   padding: 120px 0;
@@ -1089,7 +1088,7 @@ select:focus-visible {
       background-image: var(--service-image);
       background-size: cover;
       background-position: center;
-      filter: brightness(0.52) contrast(1.08) saturate(0.9);
+      filter: brightness(2) contrast(1.08) saturate(0.9);
       transform: scale(1.02);
       transition:
         transform 0.55s ease,
@@ -2065,40 +2064,40 @@ body.modal-open {
   padding: 130px 0 110px;
   overflow: clip;
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background:
-      radial-gradient(
-        circle at 12% 18%,
-        rgba(255, 125, 45, 0.1),
-        transparent 24%
-      ),
-      radial-gradient(
-        circle at 88% 82%,
-        rgba(255, 95, 20, 0.08),
-        transparent 22%
-      );
-    filter: blur(34px);
-    opacity: 0.95;
-  }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   pointer-events: none;
+  //   // background:
+  //   //   radial-gradient(
+  //   //     circle at 12% 18%,
+  //   //     rgba(255, 125, 45, 0.1),
+  //   //     transparent 24%
+  //   //   ),
+  //   //   radial-gradient(
+  //   //     circle at 88% 82%,
+  //   //     rgba(255, 95, 20, 0.08),
+  //   //     transparent 22%
+  //   //   );
+  //   filter: blur(34px);
+  //   opacity: 0.95;
+  // }
 
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.015) 0%,
-      transparent 18%,
-      transparent 82%,
-      rgba(255, 255, 255, 0.015) 100%
-    );
-    opacity: 0.45;
-  }
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   pointer-events: none;
+  //   background: linear-gradient(
+  //     90deg,
+  //     rgba(255, 255, 255, 0.015) 0%,
+  //     transparent 18%,
+  //     transparent 82%,
+  //     rgba(255, 255, 255, 0.015) 100%
+  //   );
+  //   opacity: 0.45;
+  // }
 
   &__container {
     position: relative;
@@ -2116,19 +2115,19 @@ body.modal-open {
     padding: 42px 42px 38px;
     @include premium-panel(34px, $color-surface-2);
 
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      pointer-events: none;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 135, 60, 0.08) 0%,
-        transparent 40%,
-        transparent 100%
-      );
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   inset: 0;
+    //   border-radius: inherit;
+    //   pointer-events: none;
+    //   background: linear-gradient(
+    //     135deg,
+    //     rgba(255, 135, 60, 0.08) 0%,
+    //     transparent 40%,
+    //     transparent 100%
+    //   );
+    // }
   }
 
   &__eyebrow {
@@ -2146,16 +2145,16 @@ body.modal-open {
     font-weight: 600;
     color: rgba(255, 255, 255, 0.5);
 
-    &::before {
-      content: '';
-      width: 40px;
-      height: 1px;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 140, 70, 0.9),
-        rgba(255, 255, 255, 0.18)
-      );
-    }
+    // &::before {
+    //   content: '';
+    //   width: 40px;
+    //   height: 1px;
+    //   background: linear-gradient(
+    //     90deg,
+    //     rgba(255, 140, 70, 0.9),
+    //     rgba(255, 255, 255, 0.18)
+    //   );
+    // }
   }
 
   &__title {
@@ -2213,18 +2212,18 @@ body.modal-open {
       0 20px 46px rgba(0, 0, 0, 0.22),
       inset 0 1px 0 rgba(255, 255, 255, 0.04);
 
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(
-        135deg,
-        rgba(255, 132, 58, 0.09) 0%,
-        transparent 42%,
-        transparent 100%
-      );
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   inset: 0;
+    //   pointer-events: none;
+    //   background: linear-gradient(
+    //     135deg,
+    //     rgba(255, 132, 58, 0.09) 0%,
+    //     transparent 42%,
+    //     transparent 100%
+    //   );
+    // }
 
     p,
     a {
@@ -2288,9 +2287,9 @@ body.modal-open {
   &__route-btn {
     color: #fff;
     background: $color-accent-gradient;
-    box-shadow:
-      0 18px 32px -14px rgba(255, 120, 50, 0.5),
-      0 0 26px rgba(255, 120, 50, 0.14);
+    // box-shadow:
+    //   0 18px 32px -14px rgba(255, 120, 50, 0.5),
+    //   0 0 26px rgba(255, 120, 50, 0.14);
 
     &:hover {
       transform: translateY(-2px);
@@ -2494,18 +2493,18 @@ body.modal-open {
   padding: 34px 30px 30px;
   @include premium-panel(30px, $color-surface-3);
 
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 132, 58, 0.11) 0%,
-      transparent 40%,
-      transparent 100%
-    );
-  }
+  // &::before {
+  //   content: '';
+  //   position: absolute;
+  //   inset: 0;
+  //   pointer-events: none;
+  //   background: linear-gradient(
+  //     135deg,
+  //     rgba(255, 132, 58, 0.11) 0%,
+  //     transparent 40%,
+  //     transparent 100%
+  //   );
+  // }
 
   &__eyebrow {
     position: relative;
@@ -2522,12 +2521,12 @@ body.modal-open {
     font-weight: 700;
     color: rgba(255, 255, 255, 0.5);
 
-    &::before {
-      content: '';
-      width: 24px;
-      height: 1px;
-      background: rgba(255, 140, 70, 0.84);
-    }
+    // &::before {
+    //   content: '';
+    //   width: 24px;
+    //   height: 1px;
+    //   background: rgba(255, 140, 70, 0.84);
+    // }
   }
 
   &__title {
@@ -2635,9 +2634,9 @@ body.modal-open {
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    box-shadow:
-      0 18px 32px -14px rgba(255, 120, 50, 0.52),
-      0 0 26px rgba(255, 120, 50, 0.16);
+    // box-shadow:
+    //   0 18px 32px -14px rgba(255, 120, 50, 0.52),
+    //   0 0 26px rgba(255, 120, 50, 0.16);
     transition:
       transform 0.3s ease,
       filter 0.3s ease;

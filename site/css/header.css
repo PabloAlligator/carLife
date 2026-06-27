@@ -91,21 +91,24 @@ body {
 .header__nav ul li a:hover::after {
   width: 100%;
 }
-.header__nav ul li:last-child a {
+.header__nav ul li:nth-child(5), .header__nav ul li:nth-child(6) a {
   padding: 10px 20px;
   color: white;
   background: #e50914;
   border-radius: 8px;
 }
-.header__nav ul li:last-child a::after {
+.header__nav ul li:nth-child(5)::after, .header__nav ul li:nth-child(6) a::after {
   display: none;
 }
-.header__nav ul li:last-child a:hover {
+.header__nav ul li:nth-child(5):hover, .header__nav ul li:nth-child(6) a:hover {
   color: black;
 }
-.header__nav ul li:last-child a:hover::before {
+.header__nav ul li:nth-child(5):hover::before, .header__nav ul li:nth-child(6) a:hover::before {
   background: white;
   transform: skew(-15deg) scale(1.05);
+}
+.header__nav ul li:last-child {
+  display: none;
 }
 
 @media (max-width: 1024px) {
@@ -156,6 +159,9 @@ body {
     opacity: 0;
     transform: translateX(40px);
     transition: 0.4s ease;
+  }
+  .header__nav ul li:last-child {
+    display: block;
   }
   .header__nav.active ul li {
     opacity: 1;
