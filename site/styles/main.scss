@@ -384,13 +384,14 @@ select:focus-visible {
   .hero {
     min-height: 100svh;
     align-items: flex-end;
+    filter: brightness(1.6);
     background:
       linear-gradient(
         180deg,
-        rgba(0, 0, 0, 0.18) 0%,
-        rgba(0, 0, 0, 0.54) 46%,
-        rgba(0, 0, 0, 0.96) 100%
-      ),
+        // rgba(0, 0, 0, 0.18) 0%,
+        // rgba(0, 0, 0, 0.54) 46%,
+        // rgba(0, 0, 0, 0.26) 100%
+       )
       url('../img/hero-back.jpg') 66% center / cover no-repeat;
 
     &-container {
@@ -666,25 +667,25 @@ select:focus-visible {
       0 38px 110px rgba(0, 0, 0, 0.55),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      pointer-events: none;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(0, 0, 0, 0.05) 0%,
-          rgba(0, 0, 0, 0.28) 52%,
-          rgba(0, 0, 0, 0.72) 100%
-        ),
-        linear-gradient(
-          135deg,
-          rgba($color-accent, 0.16),
-          transparent 38%
-        );
-    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   inset: 0;
+    //   z-index: 2;
+    //   pointer-events: none;
+    //   background:
+    //     linear-gradient(
+    //       180deg,
+    //       rgba(0, 0, 0, 0.05) 0%,
+    //       rgba(0, 0, 0, 0.28) 52%,
+    //       rgba(0, 0, 0, 0.72) 100%
+    //     ),
+    //     linear-gradient(
+    //       135deg,
+    //       rgba($color-accent, 0.16),
+    //       transparent 38%
+    //     );
+    // }
   }
 
   &__image {
@@ -692,7 +693,7 @@ select:focus-visible {
     height: 100%;
     object-fit: cover;
     transform: scale(1.03);
-    filter: brightness(0.78) contrast(1.08) saturate(0.95);
+    filter: brightness(1.4) contrast(1.08) saturate(0.95);
   }
 
   &__floating-card {
